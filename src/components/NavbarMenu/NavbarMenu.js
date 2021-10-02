@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react'; // <== IMPORT
 import { AuthContext } from './../../context/auth.context'; // <== IMPORT
-import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import './NavbarMenu.css';
 
 function NavbarMenu() {
@@ -25,6 +25,7 @@ function NavbarMenu() {
 					<Nav>
 						{isLoggedIn ? (
 							<div className="flexDisplay">
+								<Nav.Link href="/dashboard">Dashboard</Nav.Link>
 								<Nav.Link>
 									<span className="welcome__User">Welcome, {user.name}</span>
 								</Nav.Link>

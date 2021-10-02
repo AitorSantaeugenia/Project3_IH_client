@@ -1,25 +1,114 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from 'react-bootstrap';
+import './Carousel.css';
 
 function DemoCarousel() {
 	return (
-		<Carousel>
-			<div>
-				<img src="assets/1.jpeg" />
-				<p className="legend">Legend 1</p>
-			</div>
-			<div>
-				<img src="assets/2.jpeg" />
-				<p className="legend">Legend 2</p>
-			</div>
-			<div>
-				<img src="assets/3.jpeg" />
-				<p className="legend">Legend 3</p>
-			</div>
+		<Carousel slide={false} fade={false} className="background__Carousel">
+			<Carousel.Item>
+				<img
+					className="d-block w-100 image__Carousel"
+					src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg"
+					alt="First slide"
+				/>
+				<Carousel.Caption>
+					<h3>First slide label</h3>
+					<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+				</Carousel.Caption>
+			</Carousel.Item>
+			<Carousel.Item>
+				<img
+					className="d-block w-100 image__Carousel"
+					src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/a1/d2/af/hotel-r-de-paris.jpg?w=900&h=-1&s=1"
+					alt="Second slide"
+				/>
+
+				<Carousel.Caption>
+					<h3>Second slide label</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</Carousel.Caption>
+			</Carousel.Item>
+
+			<Carousel.Item>
+				<img
+					className="d-block w-100 image__Carousel"
+					src="https://storage.googleapis.com/static-content-hc/sites/default/files/cataloina_porto_doble_balcon2_2.jpg"
+					alt="Third slide"
+				/>
+
+				<Carousel.Caption>
+					<h3>Third slide label</h3>
+					<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+				</Carousel.Caption>
+			</Carousel.Item>
 		</Carousel>
 	);
 }
 
 export default DemoCarousel;
+
+/*
+		<Container>
+			<Carousel>
+				<div>
+					<img
+						src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg"
+						alt="Hotel"
+					/>
+				</div>
+				<div>
+					<img
+						src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/a1/d2/af/hotel-r-de-paris.jpg?w=900&h=-1&s=1"
+						alt="Hotel"
+					/>
+				</div>
+				<div>
+					<img
+						src="https://storage.googleapis.com/static-content-hc/sites/default/files/cataloina_porto_doble_balcon2_2.jpg"
+						alt="Hotel"
+					/>
+				</div>
+			</Carousel>
+		</Container>
+
+
+				<Carousel slide={false} fade={false}>
+			<Carousel.Item>
+				<img
+					className="d-block w-100"
+					src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg"
+					alt="First slide"
+				/>
+				<Carousel.Caption>
+					<h3>First slide label</h3>
+					<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+				</Carousel.Caption>
+			</Carousel.Item>
+			<Carousel.Item>
+				<img
+					className="d-block w-100"
+					src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/a1/d2/af/hotel-r-de-paris.jpg?w=900&h=-1&s=1"
+					alt="Second slide"
+				/>
+
+				<Carousel.Caption>
+					<h3>Second slide label</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</Carousel.Caption>
+			</Carousel.Item>
+			<Carousel.Item>
+				<img
+					className="d-block w-100"
+					src="https://storage.googleapis.com/static-content-hc/sites/default/files/cataloina_porto_doble_balcon2_2.jpg"
+					alt="Third slide"
+				/>
+
+				<Carousel.Caption>
+					<h3>Third slide label</h3>
+					<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+				</Carousel.Caption>
+			</Carousel.Item>
+		</Carousel>
+*/

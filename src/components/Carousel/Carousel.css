@@ -1,4 +1,14 @@
-/* Classes for NavbarMenu */
-.welcome__User{
-	color:white;
+/* Classes for Carousel */
+.image__Carousel{
+	height:100% !important;
+	width:100% !important;
+
 }
+.carousel-item {
+	height: 700px;
+  }
+  
+  
+  .sr-only{
+	display:none;
+  }
