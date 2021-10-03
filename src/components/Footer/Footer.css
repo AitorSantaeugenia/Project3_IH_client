@@ -1,0 +1,31 @@
+/* Classes for Footer */
+footer{
+	background: rgb(33,37,41) !important;
+	color:white;
+
+}
+
+.mt-4{
+	margin-top:0 !important;
+}
+
+/* Button back to top */
+.back-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 60px;
+	font-size: 35px;
+	color: rgb(153, 153, 153);
+	cursor: pointer;
+	border-radius: 200px;
+	border: 1px solid rgb(153, 153, 153);
+	background: rgb(33,37,41);
+
+  }
+  
+  .back-to-top:hover {
+	color:white;
+	border: 1px solid white;
+  }
+  
