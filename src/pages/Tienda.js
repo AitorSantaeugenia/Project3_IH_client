@@ -1,4 +1,4 @@
-import ReservarBuscador from '../components/ReservarBuscador/ReservarBuscador';
+import ReservarBuscador from '../components/Reservar/Reservar';
 import TiendaComponente from '../components/Tienda/Tienda';
 import Serviciosreserva from '../components/Serviciosreserva/Serviciosres';
 import Mapa from '../components/Mapa/Mapa';

@@ -22,7 +22,7 @@ const ContactoForm = () => {
 				<form id="contact-form" method="POST" className="fg-center">
 					<div className="form-group">
 						<label htmlFor="name">Nombre</label>
-						<input type="text" className="form-control inputSizeController" value="test" />
+						<input type="text" className="form-control inputSizeController" placeholder="Nombre..." />
 					</div>
 					<div className="form-group">
 						<label htmlFor="exampleInputEmail1">Email</label>
@@ -30,21 +30,20 @@ const ContactoForm = () => {
 							type="email"
 							className="form-control inputSizeController"
 							aria-describedby="emailHelp"
-							value="test"
+							placeholder="Email..."
 						/>
 					</div>
 					<div className="form-group">
 						<label htmlFor="exampleInputEmail1">Asunto</label>
-						<input
-							type="email"
-							className="form-control inputSizeController"
-							aria-describedby="emailHelp"
-							value="test"
-						/>
+						<input type="text" className="form-control inputSizeController" placeholder="Asunto..." />
 					</div>
 					<div className="form-group">
 						<label htmlFor="message">Mensaje</label>
-						<textarea className="form-control no-resize inputSizeController" rows="5" value="test" />
+						<textarea
+							className="form-control no-resize inputSizeController"
+							rows="5"
+							placeholder="Mensaje..."
+						/>
 					</div>
 					<button type="submit" className="btn btn-primary inputSizeController marginTopButton">
 						Enviar

@@ -1,5 +1,5 @@
 //Componentes
-import ReservarBuscador from '../components/ReservarBuscador/ReservarBuscador';
+import ReservarBuscador from '../components/Reservar/Reservar';
 import RestauranteComponent from '../components/Restaurante/Restaurante';
 import Serviciosreserva from '../components/Serviciosreserva/Serviciosres';
 import Mapa from '../components/Mapa/Mapa';

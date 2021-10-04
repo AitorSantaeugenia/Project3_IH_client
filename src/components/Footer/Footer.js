@@ -43,7 +43,7 @@ const FooterMenu = () => {
 								</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="/hotel" className="noDecoration colorWhite">
+								<a href="/habitaciones" className="noDecoration colorWhite">
 									Hotel
 								</a>
 							</li>

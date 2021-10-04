@@ -1,5 +1,7 @@
+import DashboardForms from '../components/Dashboard/Dashboard';
+
 function Dashboard() {
-	return <h1>Dashboard</h1>;
+	return <DashboardForms />;
 }
 
 export default Dashboard;
