@@ -38,3 +38,22 @@ footer{
 	  margin:0;
 	  padding:0;
   }
+
+  .firstP__Footer{
+    margin-bottom:20px;
+    text-align: left;
+    font-size: 20px;
+    margin-left:10px;
+    color: grey;
+    text-transform: uppercase;
+  }
+
+  .P__Footer{
+	text-align: left;
+    margin-left:10px;
+    margin-bottom:0;
+}
+
+.maringTopFooter{
+	margin-top:40px;
+}

@@ -1,0 +1,21 @@
+/* Classes for Restaurante */
+.habitacionesDiv__Container{
+	padding:40px;
+}
+
+.marginBottom{
+	margin-bottom:20px !important;
+	min-width: 800px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.noDecoration{
+	text-decoration: none;
+	color:black;
+}
+
+.noDecoration:hover{
+	text-decoration: none;
+	color:black;
+}

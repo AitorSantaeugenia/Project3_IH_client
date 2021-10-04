@@ -25,9 +25,11 @@ const FooterMenu = () => {
 			<MDBContainer fluid className="text-center text-md-left margin-top20">
 				<MDBRow>
 					<MDBCol md="4">
-						<h5 className="title">Hotel name</h5>
-						<p>Direction</p>
-						<p>CP</p>
+						<p className="firstP__Footer">Nombre hotel</p>
+						<p className="P__Footer">Dirección</p>
+						<p className="P__Footer">CP</p>
+						<p className="P__Footer">telefono</p>
+						<p className="P__Footer">email</p>
 					</MDBCol>
 					<MDBCol md="4">
 						<img src="../../images/in-color.jpg" alt="hotel" />
@@ -54,7 +56,7 @@ const FooterMenu = () => {
 					</MDBCol>
 				</MDBRow>
 			</MDBContainer>
-			<div className="footer-copyright text-center py-3">
+			<div className="footer-copyright text-center py-3 maringTopFooter">
 				<MDBContainer fluid>
 					&copy; {new Date().getFullYear()} Copyright: <a href="guesthotel.com"> guesthotel.com </a>
 				</MDBContainer>

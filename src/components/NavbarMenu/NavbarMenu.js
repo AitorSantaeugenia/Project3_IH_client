@@ -17,10 +17,10 @@ function NavbarMenu() {
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
 						<Nav.Link href="/">Home</Nav.Link>
-						<Nav.Link href="/hotel">Hotel</Nav.Link>
+						<Nav.Link href="/habitaciones">Habitaciones</Nav.Link>
 						<Nav.Link href="/restaurante">Restaurante</Nav.Link>
 						<Nav.Link href="/tienda">Tienda</Nav.Link>
-						<Nav.Link href="/contacto">Contact</Nav.Link>
+						<Nav.Link href="/contacto">Contacto</Nav.Link>
 					</Nav>
 					<Nav>
 						{isLoggedIn ? (
@@ -29,18 +29,14 @@ function NavbarMenu() {
 								<Nav.Link>
 									<span className="welcome__User">Welcome, {user.name}</span>
 								</Nav.Link>
-								<button onClick={logOutUser}>Logout</button>
+								<Nav.Link href="/" onClick={logOutUser}>
+									Logout
+								</Nav.Link>
 							</div>
 						) : (
-							<div>
-								<Link to="/signup">
-									{' '}
-									<button>Signup</button>{' '}
-								</Link>
-								<Link to="/login">
-									{' '}
-									<button>Login</button>{' '}
-								</Link>
+							<div className="flexDisplay">
+								<Nav.Link href="/signup">Signup</Nav.Link>
+								<Nav.Link href="/login">Login</Nav.Link>
 							</div>
 						)}
 					</Nav>
@@ -115,4 +111,17 @@ export default NavbarMenu;
 							<NavDropdown.Divider />
 							<NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
 						</NavDropdown>
+
+
+							<div>
+								<Nav.Link href="/signup">Signup</Nav.Link>
+								<Link to="/signup">
+									{' '}
+									<button>Signup</button>{' '}
+								</Link>
+								<Link to="/login">
+									{' '}
+									<button>Login</button>{' '}
+								</Link>
+							</div>
 */

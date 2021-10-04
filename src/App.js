@@ -13,7 +13,7 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 
 //Pages hotels
-import Hotel from './pages/Hotel';
+import Habitaciones from './pages/Hotel';
 import Restaurante from './pages/Restaurante';
 import Tienda from './pages/Tienda';
 import Contacto from './pages/Contacto';
@@ -26,10 +26,11 @@ function App() {
 			<div className="main__Body">
 				<Switch>
 					<Route exact path="/" component={HomePage} />
-					<Route exact path="/hotel" component={Hotel} />
+					<Route exact path="/habitaciones" component={Habitaciones} />
 					<Route exact path="/restaurante" component={Restaurante} />
 					<Route exact path="/tienda" component={Tienda} />
 					<Route exact path="/contacto" component={Contacto} />
+					<Route exact path="/reservas" component={Contacto} />
 
 					{/* 👇 UPDATE THE EXISTING ROUTES 👇  */}
 					<PrivateRoute exact path="/dashboard" component={Dashboard} />

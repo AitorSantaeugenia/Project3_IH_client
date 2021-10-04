@@ -1,0 +1,30 @@
+/* Classes for ReservarBuscador */
+.reservar__divContainer{
+	background-color: rgb(33,37,41);
+	padding:10px;
+	color:white;
+	display:flex;
+	justify-content:center;
+}
+
+.reservar__bigText{
+	font-size:50px;
+}
+
+.reservar__bigText a{
+	text-decoration: none;
+	color:white;
+}
+
+.reservar__bigText a:hover{
+	text-decoration: none;
+	color:white;
+}
+
+.reservar__smallText{
+	display:flex;
+	flex-direction: column;
+	justify-content:center;
+	text-align: left;
+	margin-left:20px;
+}

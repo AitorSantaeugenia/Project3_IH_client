@@ -1,0 +1,106 @@
+/* Classes for Contacto */
+.contactForm__container{
+    min-width: 80vw;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding:50px;
+    display:flex;
+    justify-content:center;
+}
+
+.no-resize{
+    resize: none;
+}
+
+.infoHotel__contactFormInfo{
+    background-color:#F5F5F5 !important;
+    min-width:500px;
+    max-width:500px;
+    padding-top:20px;
+    margin-right:20px;
+    padding: 20px;
+}
+
+.infoHotel__contactForm{
+   padding-top:20px;
+   min-width:40vw;
+   max-width:40vw;
+   background-color:#F5F5F5 !important;
+
+}
+
+.imageForm__contact{
+   min-width:300px;
+   max-width:400px;
+}
+
+.firstP__ContactForm{
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align: left;
+    font-size: 20px;
+    margin-left:10px;
+    color: grey;
+    text-transform: uppercase;
+}
+
+.P__ContactForm{
+    text-align: left;
+    margin-left:10px;
+    margin-bottom:0;
+}
+
+.Plast__ContactForm{
+    text-align: left;
+    margin-left:10px;
+    margin-bottom:20px;
+}
+
+.infoHotel__contactleft{
+    min-width:300px;
+    max-width:400px;
+    margin:0 auto;
+}
+
+
+
+.fg-center{
+    display:flex;
+    flex-direction: column;
+}
+
+.inputSizeController{
+    min-width:90%;
+    max-width:90%;
+    margin:0 auto;
+}
+
+.marginTopButton{
+    margin-top:25px;
+}
+
+@media (max-width: 768px) {
+    .contactForm__container {
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+    }
+
+    .infoHotel__contactFormInfo{
+        min-width:80vw;
+        max-width:80vw;
+        margin-top:40px;
+        margin-bottom:20px;
+    }
+
+    .infoHotel__contactForm{
+        min-width:80vw;
+        max-width:80vw;
+        margin-bottom:40px;
+    }
+
+    .contactForm__container{
+        margin:0 auto !important;
+        padding:0;
+    }
+  }

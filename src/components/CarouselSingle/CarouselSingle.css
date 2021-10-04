@@ -1,0 +1,13 @@
+/* Classes for Carousel */
+.image__Carousel2{
+	height:100% !important;
+	width:80% !important;
+
+}
+.carusel-item-2 {
+	height: 500px;
+  }
+  
+  .sr-only{
+	display:none;
+  }
