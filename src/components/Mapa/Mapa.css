@@ -1,0 +1,6 @@
+/* Classes for Mapa */
+.mapComponent__Googlemap{
+    height: 70vh;
+    width: 100%;
+    margin-bottom:0px;
+}

@@ -21,44 +21,34 @@ const FooterMenu = () => {
 	};
 
 	return (
-		<MDBFooter className="font-small pt-4 mt-4">
-			<MDBContainer fluid className="text-center text-md-left">
+		<MDBFooter className="font-small pt-4 ">
+			<MDBContainer fluid className="text-center text-md-left margin-top20">
 				<MDBRow>
 					<MDBCol md="4">
-						<h5 className="title">Footer Content</h5>
-						<p>Here you can use rows and columns here to organize your footer content.</p>
+						<h5 className="title">Hotel name</h5>
+						<p>Direction</p>
+						<p>CP</p>
 					</MDBCol>
 					<MDBCol md="4">
-						<h5 className="title">Links</h5>
-						<ul>
-							<li className="list-unstyled">
-								<a href="#!">Link 1</a>
-							</li>
-							<li className="list-unstyled">
-								<a href="#!">Link 2</a>
-							</li>
-							<li className="list-unstyled">
-								<a href="#!">Link 3</a>
-							</li>
-							<li className="list-unstyled">
-								<a href="#!">Link 4</a>
-							</li>
-						</ul>
+						<img src="../../images/in-color.jpg" alt="hotel" />
 					</MDBCol>
 					<MDBCol md="4">
-						<h5 className="title">Links</h5>
-						<ul>
+						<h5 className="title">Web map</h5>
+						<ul className="noPaddingNoMargin">
 							<li className="list-unstyled">
-								<a href="#!">Link 1</a>
+								<a href="/">Home</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="#!">Link 2</a>
+								<a href="/hotel">Hotel</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="#!">Link 3</a>
+								<a href="/reservation">Reservas</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="#!">Link 4</a>
+								<a href="/restaurante">Restaurante</a>
+							</li>
+							<li className="list-unstyled">
+								<a href="/contacto">Contacto</a>
 							</li>
 						</ul>
 					</MDBCol>

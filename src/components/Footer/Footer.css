@@ -2,6 +2,7 @@
 footer{
 	background: rgb(33,37,41) !important;
 	color:white;
+	padding:50px !important;
 
 }
 
@@ -28,4 +29,12 @@ footer{
 	color:white;
 	border: 1px solid white;
   }
-  
+  .margin-top20{
+	  margin-top:30px;
+	  margin-bottom:10px;
+  }
+
+  .noPaddingNoMargin{
+	  margin:0;
+	  padding:0;
+  }

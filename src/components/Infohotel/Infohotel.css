@@ -1,0 +1,49 @@
+/* Classes for Infohotel */
+.divInfoHotel__Container{
+    /* border:1px solid red; */
+    padding-top:50px;
+    padding-bottom:50px;
+    min-width: 70vw;
+    max-width: 70vw;
+    margin: 0 auto;
+}
+
+.divInfoHotel__HotelName{
+    /* border:1px solid red;*/
+    font-size: 50px;
+}
+
+.divInfoHotel__Stars{
+    /* border:1px solid red; */
+    padding:10px;
+    line-height: 100%;
+}
+
+.divInfoHotel__Catchphrase{
+    /* border:1px solid red; */
+    color:#282c34;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding:5px;
+}
+
+.divInfoHotel__InfoHotel{
+    /* border:1px solid red; */
+    padding:20px;
+
+    font-size: 20px;
+ 
+    
+}
+.react-icons__Star{
+    color:rgb(126, 126, 6);
+}
+
+.separator{
+    border:1px solid #282c34;;
+    min-width:250px;
+    max-width: 250px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom:15px;
+}

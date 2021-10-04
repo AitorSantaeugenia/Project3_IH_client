@@ -1,0 +1,56 @@
+/* Classes for Serviciosres */
+.serviciosDiv__Container{
+background:#F5F5F5;
+padding:40px;
+}
+
+.serviciosDiv__Title{
+    font-size:30px;
+    text-transform: uppercase;
+    max-width: 50vw;
+    min-width: 50vw;
+    margin:0 auto;
+    padding: 0;
+    margin-bottom:20px;
+}
+
+.serviciosDiv__cards{
+    max-width: 100%;
+    min-width: 100% ;
+    padding:20px ;
+    justify-content:center;
+}
+
+.serviciosCard{
+    max-width: 200px !important;
+    min-width: 200px !important;
+}
+
+.centeredAuto{
+    margin: 0 auto;
+}
+
+.serviciosCard__Card {
+    position: relative;
+    background:#F5F5F5;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding:20px;
+    margin:0 auto;
+    min-width: 300px !important;
+    max-width: 300px !important;
+}
+
+.serviciosResIcon{
+    font-size:40px;
+    line-height: 40px;
+    margin-bottom:10px;
+}
+
+.fontSize-h3Serviciosres{
+    font-size:20px;
+}
+
+.serviciosCard__Card:hover{
+    background: #d4d4d4;
+}

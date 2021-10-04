@@ -1,0 +1,36 @@
+/* Classes for Comentarios */
+.comentariosDiv_Container{
+    padding:50px;
+    margin: 0 auto;
+    min-width: 100%;
+    max-width: 100%;
+    background-color: #F5F5F5;
+}
+
+.comentariosCarousel__img{
+    min-width: 80px;
+    max-width: 80px;
+    margin:0 auto;
+    border-radius: 80px;
+    margin-top: 50px;
+}
+
+.carouselCommentarios{
+    min-width: 100%;
+    max-width: 100%;
+    height: 800px;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.carouselItem__Comentarios{
+    margin: 0 auto;
+    background-color: white;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.textBlack{
+    color:black !important;
+    
+}

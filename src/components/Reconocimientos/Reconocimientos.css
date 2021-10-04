@@ -1,0 +1,25 @@
+/* Classes for Reconocimientos */
+.reconocimientoDiv__h1{
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #999999
+}
+
+.reconocimientoDiv__container{
+    padding:50px;
+}
+
+.separator__reconocimientos{
+    border:1px solid #282c34;;
+    min-width:250px;
+    max-width: 250px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom:15px;
+}
+
+.reconocimientos__img{
+    min-width: 200px;
+    max-width: 200px;
+    margin: 10px;
+}

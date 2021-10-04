@@ -1,0 +1,7 @@
+/* Classes for Servicioshotel */
+.serviciosHotel__img{
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+}
