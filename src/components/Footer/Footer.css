@@ -57,3 +57,11 @@ footer{
 .maringTopFooter{
 	margin-top:40px;
 }
+
+.colorWhite{
+	color:white !important;
+}
+
+.colorWhite:hover{
+	color:grey !important;
+}

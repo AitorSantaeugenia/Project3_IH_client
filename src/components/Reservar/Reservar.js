@@ -4,7 +4,7 @@ function Reservar() {
 	return (
 		<div className="reservar__divContainer">
 			<div className="reservar__bigText">
-				<a href="/reservas">Reservar</a> |
+				<a href="/habitaciones">Reservar</a> |
 			</div>
 			<div className="reservar__smallText">
 				<span>Reserva con nosotros</span>

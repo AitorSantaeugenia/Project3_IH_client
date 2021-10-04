@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import UploadService from '../services/upload.service';
 import { Button, Spinner } from 'react-bootstrap';
+//toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -10,7 +13,7 @@ function SignupPage(props) {
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ name, setName ] = useState('');
-	const [ errorMessage, setErrorMessage ] = useState(undefined);
+	const [ errorMessage, setErrorMessage ] = useState('Inserta todos los campos.');
 
 	const [ image, setImage ] = useState('');
 	const [ isLoading, setIsLoading ] = useState(false);
@@ -24,6 +27,17 @@ function SignupPage(props) {
 
 	const handleSignupSubmit = (e) => {
 		e.preventDefault();
+
+		toast(`⚠ ${errorMessage}`, {
+			position: 'top-right',
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined
+		});
+
 		// Create an object representing the request body
 		const requestBody = { email, password, name, image };
 
@@ -58,20 +72,44 @@ function SignupPage(props) {
 
 	return (
 		<div className="SignupPage">
-			<h1>Sign Up</h1>
+			<h1 className="h1SignupPage">Sign Up</h1>
+			<p>
+				Ya tienes una cuenta de <b>Guesthotel</b>?, inicia sesión en <Link to={'/login'}> Login</Link>
+			</p>
 
-			<form onSubmit={handleSignupSubmit}>
+			<form onSubmit={handleSignupSubmit} className="formLogin">
 				<label>Email:</label>
-				<input type="text" name="email" value={email} onChange={handleEmail} />
+				<input
+					type="text"
+					name="email"
+					value={email}
+					onChange={handleEmail}
+					className="form-control"
+					placeholder="Email..."
+				/>
 
 				<label>Password:</label>
-				<input type="password" name="password" value={password} onChange={handlePassword} />
+				<input
+					type="password"
+					name="password"
+					value={password}
+					onChange={handlePassword}
+					className="form-control"
+					placeholder="Password..."
+				/>
 
 				<label>Name:</label>
-				<input type="text" name="name" value={name} onChange={handleName} />
+				<input
+					type="text"
+					name="name"
+					value={name}
+					onChange={handleName}
+					className="form-control"
+					placeholder="Name..."
+				/>
 
 				<label>Avatar:</label>
-				<input type="file" name="file" onChange={handleInputFile} />
+				<input type="file" name="file" onChange={handleInputFile} className="form-control" />
 
 				{image ? <img src={image} alt="avatar" style={{ width: '100px' }} /> : null}
 
@@ -81,15 +119,25 @@ function SignupPage(props) {
 						Loading...
 					</Button>
 				) : (
-					<button type="submit">Sign Up</button>
+					<button type="submit" className="btn-submit-login">
+						Sign Up
+					</button>
 				)}
 			</form>
 
-			{errorMessage && <p className="error-message">{errorMessage}</p>}
-
-			<p>Already have account?</p>
-
-			<Link to={'/login'}> SignUp</Link>
+			{errorMessage && (
+				<ToastContainer
+					position="top-right"
+					autoClose={5000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+				/>
+			)}
 		</div>
 	);
 }

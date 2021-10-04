@@ -10126,7 +10126,7 @@
   dependencies:
     "prop-types" "^15.5.6"
 
-"react-toastify@5.5.0":
+"react-toastify@^5.5.0", "react-toastify@5.5.0":
   "integrity" "sha512-jsVme7jALIFGRyQsri/g4YTsRuaaGI70T6/ikjwZMB4mwTZaCWqj5NqxhGrRStKlJc5npXKKvKeqTiRGQl78LQ=="
   "resolved" "https://registry.npmjs.org/react-toastify/-/react-toastify-5.5.0.tgz"
   "version" "5.5.0"

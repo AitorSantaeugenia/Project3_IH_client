@@ -35,22 +35,32 @@ const FooterMenu = () => {
 						<img src="../../images/in-color.jpg" alt="hotel" />
 					</MDBCol>
 					<MDBCol md="4">
-						<h5 className="title">Web map</h5>
+						<h5 className="title">Mapa web</h5>
 						<ul className="noPaddingNoMargin">
 							<li className="list-unstyled">
-								<a href="/">Home</a>
+								<a href="/" className="noDecoration colorWhite">
+									Home
+								</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="/hotel">Hotel</a>
+								<a href="/hotel" className="noDecoration colorWhite">
+									Hotel
+								</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="/reservation">Reservas</a>
+								<a href="/reservation" className="noDecoration colorWhite">
+									Reservas
+								</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="/restaurante">Restaurante</a>
+								<a href="/restaurante" className="noDecoration colorWhite">
+									Restaurante
+								</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="/contacto">Contacto</a>
+								<a href="/contacto" className="noDecoration colorWhite">
+									Contacto
+								</a>
 							</li>
 						</ul>
 					</MDBCol>

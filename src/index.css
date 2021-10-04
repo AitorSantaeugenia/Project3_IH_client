@@ -34,26 +34,46 @@ nav {
   padding-top:15px !important;
 }
 
-.SignupPage,
+
 .LoginPage {
-  background: #f9eec3;
+  background: #F5F5F5;
   border: 1px solid grey;
   box-shadow: 0px 2px 3px grey;
-  width: 400px;
+  min-width: 50vw;
+  max-width: 50vw;
+  min-height: 400px;
+  max-height: 400px;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 20px;
   padding: 10px;
   border-radius: 4px;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+.SignupPage {
+  background: #F5F5F5;
+  border: 1px solid grey;
+  box-shadow: 0px 2px 3px grey;
+  min-width: 50vw;
+  max-width: 50vw;
+  min-height: 500px;
+  max-height: 500px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top:50px;
+  margin-bottom:50px;
 }
 
 .SignupPage,
 .LoginPage {
-  background-color: #608dd5;
+  background-color: #F5F5F5;
 }
 
 .LoginPage {
-  background-color: #94a7c8;
+  background-color: #F5F5F5;
 }
 
 .SignupPage form,
@@ -63,3 +83,30 @@ nav {
   align-items: center;
 }
 
+.h1LoginPage{
+  margin-top:40px;
+}
+.formLogin{
+  margin-bottom:20px;
+}
+
+.btn-submit-login{
+  min-width: 200px;
+  max-width: 200px;
+  margin-top:20px;
+  background-color: #282c34;
+  color:white;
+}
+
+.btn-submit-login:hover{
+  background-color: #353a44;
+}
+
+.h1SignupPage{
+  margin-top:15px;
+}
+
+.Toastify__toast--default {
+  background: #363b46 !important;
+  color: #F5F5F5 !important;
+}
