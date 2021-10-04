@@ -10,7 +10,7 @@ const Serviciosres = () => {
 			<div>
 				<h1 className="serviciosDiv__Title">Reserva en nuestra web y beneficiate de las siguientes ventajas</h1>
 			</div>
-			<div class="card-group serviciosDiv__cards">
+			<div className="card-group serviciosDiv__cards">
 				<div className="serviciosCard__Card serviciosCard">
 					<BsFillCheckCircleFill className="centeredAuto serviciosResIcon" />
 					<div className="card-body">
