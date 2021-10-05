@@ -1,10 +1,42 @@
-import React from 'react';
+//import Sidebar
+import Sidebar from '../Sidebar/Sidebar';
+
 import './Dashboard.css';
 //icons react bootstrap
-import { BsHouseDoor, BsFileEarmarkCode, BsPerson, BsInfoCircle, BsListTask } from 'react-icons/bs';
 
 const Dashboard = () => {
 	return (
+		<div>
+			<Sidebar />
+			<div className="dashboardDiv__container">
+				<h1>Create your Hotel Webpage</h1>
+				<div>Hotel name</div>
+				<div>Hotel stars</div>
+				<div>Hotel logo</div>
+				<div>Hotel info</div>
+				<div>Hotel catchphrase1</div>
+				<div>Hotel catchphrase2</div>
+				<div>Hotel direction</div>
+				<div>Hotel CP</div>
+				<div>Hotel telefono</div>
+				<div>Hotel email</div>
+				<div>Hotel images</div>
+				<div>Hotel main image</div>
+				<div>Hotel rooms id</div>
+				<div>Hotel restaurant id</div>
+				<div>Hotel shop id</div>
+				<div>Hotel reconocimientos images</div>
+				<div>Hotel restaurant id</div>
+				<div>Hotel comments</div>
+			</div>
+		</div>
+	);
+};
+
+export default Dashboard;
+
+/*
+return (
 		<div className="dashboardDiv__Container">
 			<div className="dashboardDiv__Panel">
 				<h3 className="dashboardDiv__title">Guest Hotel</h3>
@@ -12,7 +44,8 @@ const Dashboard = () => {
 				<ul className="nav flex-column">
 					<li className="nav-item nav__item">
 						<BsHouseDoor className="lineHeight__icon" />
-						<a className="nav-link nav__item__link " href="/dashboard">
+						// eslint-disable-next-line 
+						<a className="nav-link nav__item__link " onClick={toggleClass}>
 							Hotel
 						</a>
 					</li>
@@ -70,10 +103,9 @@ const Dashboard = () => {
 				</ul>
 			</div>
 			<div className="dashboard__bodyContainer">
-				<div className="dashboard__body">body</div>
+				<div className="dashboard__body">
+					<div className={isActive ? 'hidden' : null}>TEST</div>
+				</div>
 			</div>
 		</div>
-	);
-};
-
-export default Dashboard;
+*/

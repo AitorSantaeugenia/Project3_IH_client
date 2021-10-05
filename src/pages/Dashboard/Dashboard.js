@@ -1,4 +1,4 @@
-import DashboardForms from '../components/Dashboard/Dashboard';
+import DashboardForms from './../../components/Dashboard/Dashboard';
 
 function Dashboard() {
 	return <DashboardForms />;

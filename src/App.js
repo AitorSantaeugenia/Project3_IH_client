@@ -17,7 +17,25 @@ import Habitaciones from './pages/Hotel';
 import Restaurante from './pages/Restaurante';
 import Tienda from './pages/Tienda';
 import Contacto from './pages/Contacto';
-import Dashboard from './pages/Dashboard';
+
+//Pages dashboard
+import Paginas from './pages/Dashboard/Paginas';
+import PaginasHotel from './pages/Dashboard/Paginas/Hotel';
+import PaginasHabitaciones from './pages/Dashboard/Paginas/Habitaciones';
+import PaginasRestaurante from './pages/Dashboard/Paginas/Restaurante';
+import PaginasTienda from './pages/Dashboard/Paginas/Tienda';
+import PaginasContacto from './pages/Dashboard/Paginas/Contacto';
+
+//Dashboard
+import Dashboard from './pages/Dashboard/Dashboard';
+import Usuarios from './pages/Dashboard/Users';
+import Estadisticas from './pages/Dashboard/Estadisticas';
+
+//Dashboard otros
+import Gestor from './pages/Dashboard/Gestor';
+import Mensajes from './pages/Dashboard/Mensajes';
+import Perfil from './pages/Dashboard/Perfil';
+import Soporte from './pages/Dashboard/Soporte';
 
 function App() {
 	return (
@@ -31,10 +49,25 @@ function App() {
 					<Route exact path="/tienda" component={Tienda} />
 					<Route exact path="/contacto" component={Contacto} />
 					<Route exact path="/reservas" component={Contacto} />
+					{/* Dashboard */}
+					{/* Paginas */}
+					<PrivateRoute path="/paginas" exact component={Paginas} />
+					<PrivateRoute path="/paginas/hotel" exact component={PaginasHotel} />
+					<PrivateRoute path="/paginas/habitaciones" exact component={PaginasHabitaciones} />
+					<PrivateRoute path="/paginas/restaurante" exact component={PaginasRestaurante} />
+					<PrivateRoute path="/paginas/tienda" exact component={PaginasTienda} />
+					<PrivateRoute path="/paginas/contacto" exact component={PaginasContacto} />
+					{/* Dashboard */}
+					<PrivateRoute exact path="/dashboard" component={Dashboard} />
+					<PrivateRoute exact path="/dashboard/usuarios" component={Usuarios} />
+					<PrivateRoute exact path="/dashboard/estadisticas" component={Estadisticas} />
+					{/* Dashboard otras */}
+					<PrivateRoute exact path="/gestor" component={Gestor} />
+					<PrivateRoute exact path="/perfil" component={Perfil} />
+					<PrivateRoute exact path="/mensajes" component={Mensajes} />
+					<PrivateRoute exact path="/soporte" component={Soporte} />
 
 					{/* 👇 UPDATE THE EXISTING ROUTES 👇  */}
-					<PrivateRoute exact path="/dashboard" component={Dashboard} />
-
 					<AnonRoute exact path="/signup" component={SignupPage} />
 					<AnonRoute exact path="/login" component={LoginPage} />
 				</Switch>
