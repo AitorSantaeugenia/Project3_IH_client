@@ -2,9 +2,28 @@ import React from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
 import './Footer.css';
 import { useEffect, useState } from 'react';
+//history
+import { useHistory } from 'react-router-dom';
 
 const FooterMenu = () => {
 	const [ showButton, setShowButton ] = useState(false);
+	const history = useHistory();
+
+	const toHome = (e) => {
+		history.push('/');
+	};
+	const toRooms = (e) => {
+		history.push('/habitaciones');
+	};
+	const toRestaurant = (e) => {
+		history.push('/restaurante');
+	};
+	const toTienda = (e) => {
+		history.push('/tienda');
+	};
+	const toContact = (e) => {
+		history.push('/contacto');
+	};
 
 	useEffect(() => {
 		window.addEventListener('scroll', () => {
@@ -38,27 +57,32 @@ const FooterMenu = () => {
 						<h5 className="title">Mapa web</h5>
 						<ul className="noPaddingNoMargin">
 							<li className="list-unstyled">
-								<a href="/" className="noDecoration colorWhite">
+								{/* eslint-disable-next-line */}
+								<a onClick={toHome} className="noDecoration colorWhite yesPointer">
 									Home
 								</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="/habitaciones" className="noDecoration colorWhite">
+								{/* eslint-disable-next-line */}
+								<a onClick={toRooms} className="noDecoration colorWhite yesPointer">
 									Hotel
 								</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="/reservation" className="noDecoration colorWhite">
+								{/* eslint-disable-next-line */}
+								<a onClick={toRestaurant} className="noDecoration colorWhite yesPointer">
 									Reservas
 								</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="/restaurante" className="noDecoration colorWhite">
+								{/* eslint-disable-next-line */}
+								<a onClick={toTienda} className="noDecoration colorWhite yesPointer">
 									Restaurante
 								</a>
 							</li>
 							<li className="list-unstyled">
-								<a href="/contacto" className="noDecoration colorWhite">
+								{/* eslint-disable-next-line */}
+								<a onClick={toContact} className="noDecoration colorWhite yesPointer">
 									Contacto
 								</a>
 							</li>
@@ -66,7 +90,7 @@ const FooterMenu = () => {
 					</MDBCol>
 				</MDBRow>
 			</MDBContainer>
-			<div className="footer-copyright text-center py-3 maringTopFooter">
+			<div className="footer-copyright py-3 maringTopFooter">
 				<MDBContainer fluid>
 					&copy; {new Date().getFullYear()} Copyright: <a href="guesthotel.com"> guesthotel.com </a>
 				</MDBContainer>

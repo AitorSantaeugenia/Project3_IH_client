@@ -13,7 +13,7 @@ function LoginPage(props) {
 	const [ password, setPassword ] = useState('');
 	const [ errorMessage, setErrorMessage ] = useState('Inserta todos los campos.');
 
-	const { logInUser } = useContext(AuthContext);
+	const { logInUser, setUserData } = useContext(AuthContext);
 
 	const handleEmail = (e) => setEmail(e.target.value);
 	const handlePassword = (e) => setPassword(e.target.value);
@@ -39,7 +39,9 @@ function LoginPage(props) {
 				//console.log('JWT token', response.data.authToken);
 				const token = response.data.authToken;
 				logInUser(token);
+				setUserData(response.data.user);
 				props.history.push('/');
+				//console.log(response);
 			})
 			.catch((error) => {
 				const errorDescription = error.response.data.message;

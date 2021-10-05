@@ -110,19 +110,20 @@ function SignupPage(props) {
 
 				<label>Avatar:</label>
 				<input type="file" name="file" onChange={handleInputFile} className="form-control" />
+				<div>
+					{image ? <img src={image} alt="avatar" style={{ width: '100px' }} /> : null}
 
-				{image ? <img src={image} alt="avatar" style={{ width: '100px' }} /> : null}
-
-				{isLoading ? (
-					<Button variant="primary" disabled>
-						<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
-						Loading...
-					</Button>
-				) : (
-					<button type="submit" className="btn-submit-login">
-						Sign Up
-					</button>
-				)}
+					{isLoading ? (
+						<Button variant="primary" disabled>
+							<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+							Loading...
+						</Button>
+					) : (
+						<button type="submit" className="btn-submit-login">
+							Sign Up
+						</button>
+					)}
+				</div>
 			</form>
 
 			{errorMessage && (

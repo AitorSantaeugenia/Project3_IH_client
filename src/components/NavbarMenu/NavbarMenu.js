@@ -2,40 +2,81 @@ import { useContext } from 'react'; // <== IMPORT
 import { AuthContext } from '../../context/auth.context'; // <== IMPORT
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import './NavbarMenu.css';
+//history
+import { useHistory } from 'react-router-dom';
 
 function NavbarMenu() {
 	// Subscribe to the AuthContext to gain access to
 	// the values from AuthContext.Provider `value` prop
-	const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+	const { isLoggedIn, user, userData, logOutUser } = useContext(AuthContext);
+	//dom history to redirect
+	const history = useHistory();
+
+	const toHome = (e) => {
+		history.push('/');
+	};
+	const toRooms = (e) => {
+		history.push('/habitaciones');
+	};
+	const toRestaurante = (e) => {
+		history.push('/restaurante');
+	};
+	const toTienda = (e) => {
+		history.push('/tienda');
+	};
+	const toContacto = (e) => {
+		history.push('/contacto');
+	};
+	const toSignup = (e) => {
+		history.push('/signup');
+	};
+	const toLogin = (e) => {
+		history.push('/login');
+	};
+	const toDashboard = (e) => {
+		history.push('/dashboard');
+	};
+	const toUserProfile = () => {
+		history.push('/perfil');
+	};
 
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 			<Container>
-				<Navbar.Brand href="/">Hotel name</Navbar.Brand>
+				<Navbar.Brand>Hotel name</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
-						<Nav.Link href="/">Home</Nav.Link>
-						<Nav.Link href="/habitaciones">Habitaciones</Nav.Link>
-						<Nav.Link href="/restaurante">Restaurante</Nav.Link>
-						<Nav.Link href="/tienda">Tienda</Nav.Link>
-						<Nav.Link href="/contacto">Contacto</Nav.Link>
+						<Nav.Link onClick={toHome}>Home</Nav.Link>
+						<Nav.Link onClick={toRooms}>Habitaciones</Nav.Link>
+						<Nav.Link onClick={toRestaurante}>Restaurante</Nav.Link>
+						<Nav.Link onClick={toTienda}>Tienda</Nav.Link>
+						<Nav.Link onClick={toContacto}>Contacto</Nav.Link>
 					</Nav>
 					<Nav>
 						{isLoggedIn ? (
 							<div className="flexDisplay">
-								<Nav.Link href="/dashboard">Dashboard</Nav.Link>
-								<Nav.Link>
-									<span className="welcome__User">Welcome, {user.name}</span>
-								</Nav.Link>
+								<Nav.Link onClick={toDashboard}>Dashboard</Nav.Link>
 								<Nav.Link href="/" onClick={logOutUser}>
 									Logout
+								</Nav.Link>1 6s{' '}
+								<Nav.Link className="noPointer">
+									<span className="welcome__User">Welcome, {user.name}</span>
+								</Nav.Link>
+								<Nav.Link className="noPointer">
+									<img
+										src={userData.image}
+										className="imgAvatar"
+										alt="avatar"
+										onClick={toUserProfile}
+										style={{ pointerEvents: 'all' }}
+									/>
 								</Nav.Link>
 							</div>
 						) : (
 							<div className="flexDisplay">
-								<Nav.Link href="/signup">Signup</Nav.Link>
-								<Nav.Link href="/login">Login</Nav.Link>
+								<Nav.Link onClick={toSignup}>Signup</Nav.Link>
+								<Nav.Link onClick={toLogin}>Login</Nav.Link>
 							</div>
 						)}
 					</Nav>
@@ -46,81 +87,3 @@ function NavbarMenu() {
 }
 
 export default NavbarMenu;
-
-/*
-<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Container>
-  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-  <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="me-auto">
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-      <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
-    </Nav>
-    <Nav>
-      <Nav.Link href="#deets">More deets</Nav.Link>
-      <Nav.Link eventKey={2} href="#memes">
-        Dank memes
-      </Nav.Link>
-    </Nav>
-  </Navbar.Collapse>
-  </Container>
-</Navbar>
-
-
-	<nav>
-			<Link to="/">
-				<button>Home</button>
-			</Link>
-			-
-			{isLoggedIn ? (
-				<div>
-					<Link to="/projects">
-						<button>Projects</button>
-					</Link>
-					<button onClick={logOutUser}>Logout</button>
-					<span>{user.name}</span>
-				</div>
-			) : (
-				<div>
-					<Link to="/signup">
-						{' '}
-						<button>Signup</button>{' '}
-					</Link>
-					<Link to="/login">
-						{' '}
-						<button>Login</button>{' '}
-					</Link>
-				</div>
-			)}
-		</nav>
-
-
-    	<NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-							<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-							<NavDropdown.Divider />
-							<NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-						</NavDropdown>
-
-
-							<div>
-								<Nav.Link href="/signup">Signup</Nav.Link>
-								<Link to="/signup">
-									{' '}
-									<button>Signup</button>{' '}
-								</Link>
-								<Link to="/login">
-									{' '}
-									<button>Login</button>{' '}
-								</Link>
-							</div>
-*/

@@ -1,4 +1,15 @@
 /* Classes for NavbarMenu */
 .welcome__User{
 	color:white;
+	cursor:default;
+}
+.imgAvatar{
+	max-width:80px;
+	max-height:40px;
+	border-radius: 80px;
+	cursor:pointer;
+}
+
+.noPointer{
+	cursor:default !important;
 }

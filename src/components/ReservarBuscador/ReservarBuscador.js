@@ -1,10 +1,22 @@
 import './ReservarBuscador.css';
+//history
+import { useHistory } from 'react-router-dom';
 
 function ReservarBuscador() {
+	const history = useHistory();
+
+	const toReservas = (e) => {
+		history.push('/reservas');
+	};
+
 	return (
 		<div className="reservar__divContainer">
 			<div className="reservar__bigText">
-				<a href="/reservas">BUSCADOR</a> |
+				{/* eslint-disable-next-line */}
+				<a onClick={toReservas} className="yesPointer">
+					BUSCADOR
+				</a>{' '}
+				|
 			</div>
 			<div className="reservar__smallText">
 				<span>Reserva con nosotros</span>
