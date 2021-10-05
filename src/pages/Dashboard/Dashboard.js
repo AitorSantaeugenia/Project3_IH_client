@@ -132,6 +132,28 @@ function Dashboard() {
 						/>
 					</div>
 					<div className="flexRow">
+						<label className="text-left">Altitud</label>
+						<input
+							type="text"
+							name="altitud"
+							// value="{Name}"
+							onChange="{handleName}"
+							className="form-control maxInputWidth"
+							placeholder="Altitud..."
+						/>
+					</div>
+					<div className="flexRow">
+						<label className="text-left">Latitud</label>
+						<input
+							type="text"
+							name="latitud"
+							// value="{Name}"
+							onChange="{handleName}"
+							className="form-control maxInputWidth"
+							placeholder="Latitud..."
+						/>
+					</div>
+					<div className="flexRow">
 						<label className="text-left">Logo</label>
 						<input
 							type="file"

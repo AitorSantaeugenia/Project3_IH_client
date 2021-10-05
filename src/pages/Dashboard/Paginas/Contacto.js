@@ -6,9 +6,7 @@ const PaginaContactoDashboard = () => {
 	return (
 		<div>
 			<Sidebar />
-			<div className="dashboardDiv__container">
-				<h1>PaginaContactoDashboard</h1>
-			</div>
+			we say wiiii
 		</div>
 	);
 };
