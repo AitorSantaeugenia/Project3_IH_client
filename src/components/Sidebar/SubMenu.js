@@ -34,6 +34,7 @@ const DropdownLink = styled(Link)`
     background: #632ce4;
     border-left: 4px solid #00ACC2;
     cursor: pointer;
+    color: #00ACC2;
   }
 `;
 
