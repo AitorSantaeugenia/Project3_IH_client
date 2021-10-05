@@ -1,23 +1,46 @@
 import React from 'react';
+import { useState } from 'react';
 //importing sidebar
 import Sidebar from '../../components/Sidebar/Sidebar';
+import { Button, Spinner } from 'react-bootstrap';
+import UploadService from '../../services/upload.service';
 
 function Dashboard() {
+	const [ isLoading, setIsLoading ] = useState(false);
+	const [ image, setImage ] = useState('');
+
+	const handleInputFile = (e) => {
+		setIsLoading(true);
+
+		const upload = new UploadService();
+
+		let formData = new FormData();
+		formData.append('file', e.target.files[0]);
+
+		upload
+			.fileUpload(formData)
+			.then((response) => {
+				setIsLoading(false);
+				setImage(response.data.imageUrl);
+			})
+			.catch((err) => console.log(err));
+	};
+
 	return (
 		<div>
 			<Sidebar />
 			<div className="dashboardDiv__container2">
-				<h1>Create your Hotel Webpage</h1>
+				<h1 className="dashboardDiv__h1">Crea tu Hotel</h1>
 				<form className="formLogin text-center2">
 					<div className="flexRow">
 						<label className="text-left">Name</label>
 						<input
 							type="text"
 							name="name"
-							value="{Name}"
+							// value="{Name}"
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
-							placeholder="Email..."
+							placeholder="Name..."
 						/>
 					</div>
 					<div className="flexRow">
@@ -25,10 +48,10 @@ function Dashboard() {
 						<input
 							type="number"
 							name="estrellas"
-							value="{Name}"
+							// value="{Name}"
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
-							placeholder="Email..."
+							placeholder="Estrellas..."
 						/>
 					</div>
 					<div className="flexRow">
@@ -36,10 +59,10 @@ function Dashboard() {
 						<input
 							type="text"
 							name="info"
-							value="{Name}"
+							// value="{Name}"
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
-							placeholder="Email..."
+							placeholder="Info..."
 						/>
 					</div>
 					<div className="flexRow">
@@ -47,10 +70,10 @@ function Dashboard() {
 						<input
 							type="text"
 							name="catchphrase"
-							value="{Name}"
+							// value="{Name}"
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
-							placeholder="Email..."
+							placeholder="Catchpharse..."
 						/>
 					</div>
 					<div className="flexRow">
@@ -58,10 +81,10 @@ function Dashboard() {
 						<input
 							type="text"
 							name="catchphrasedos"
-							value="{Name}"
+							// value="{Name}"
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
-							placeholder="Email..."
+							placeholder="Catchpharse 2..."
 						/>
 					</div>
 					<div className="flexRow">
@@ -69,10 +92,10 @@ function Dashboard() {
 						<input
 							type="text"
 							name="direccion"
-							value="{Name}"
+							// value="{Name}"
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
-							placeholder="Email..."
+							placeholder="Dirección..."
 						/>
 					</div>
 					<div className="flexRow">
@@ -80,10 +103,10 @@ function Dashboard() {
 						<input
 							type="number"
 							name="codigopostal"
-							value="{Name}"
+							// value="{Name}"
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
-							placeholder="Email..."
+							placeholder="Código postal..."
 						/>
 					</div>
 					<div className="flexRow">
@@ -91,10 +114,10 @@ function Dashboard() {
 						<input
 							type="text"
 							name="telefono"
-							value="{Name}"
+							// value="{Name}"
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
-							placeholder="Email..."
+							placeholder="Telefono..."
 						/>
 					</div>
 					<div className="flexRow">
@@ -102,23 +125,42 @@ function Dashboard() {
 						<input
 							type="email"
 							name="email"
-							value="{Name}"
+							// value="{Name}"
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
 							placeholder="Email..."
 						/>
 					</div>
-
-					<div>Hotel logo</div>
-
-					<div>Hotel images</div>
-					<div>Hotel main image</div>
-					{/* <div>Hotel rooms id</div>
-					<div>Hotel restaurant id</div>
-					<div>Hotel shop id</div> */}
-					<div>Hotel reconocimientos images</div>
-					<div>Hotel restaurant id</div>
-					<div>Hotel comments</div>
+					<div className="flexRow">
+						<label className="text-left">Logo</label>
+						<input
+							type="file"
+							name="file"
+							onChange={handleInputFile}
+							className="form-control maxInputWidth"
+						/>
+					</div>
+					<div className="flexRow">
+						<label className="text-left">Imagen principal</label>
+						<input
+							type="file"
+							name="file"
+							onChange={handleInputFile}
+							className="form-control maxInputWidth"
+						/>
+					</div>
+					<div className="flexRow">
+						<label className="text-left">Imagenes</label>
+						<input
+							type="file"
+							name="file"
+							onChange={handleInputFile}
+							className="form-control maxInputWidth"
+						/>
+					</div>
+					<button type="submit" className="btn-submit-login">
+						Crear hotel
+					</button>
 				</form>
 			</div>
 		</div>

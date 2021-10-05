@@ -46,12 +46,13 @@
 .maxInputWidth{
   min-width: 500px;
   max-width: 500px;
+  margin-bottom:5px;
 }
 
 .dashboardDiv__container2{
-  border:1px solid red;
   width:80vw;
   margin:0 auto;
+  height:100vh;
 }
 
 .text-center2{
@@ -68,8 +69,25 @@
 
 .text-left{
   text-align: left;
-
   min-width: 150px;
   max-width: 150px;
   font-weight: bold;
+}
+
+.margin-topSmall{
+  margin-top:10px;
+}
+
+.dashboardDiv__h1{
+  padding:40px;
+}
+
+.flexRowLeft{
+  text-align: right;
+}
+
+.imgAvatarProfile{
+  max-width: 80px;
+  min-width: 80px;
+  border-radius:80px;
 }

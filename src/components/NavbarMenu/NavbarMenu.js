@@ -63,15 +63,17 @@ function NavbarMenu() {
 								<Nav.Link className="noPointer">
 									<span className="welcome__User">Welcome, {user.name}</span>
 								</Nav.Link>
-								<Nav.Link className="noPointer">
-									<img
-										src={userData.image}
-										className="imgAvatar"
-										alt="avatar"
-										onClick={toUserProfile}
-										style={{ pointerEvents: 'all' }}
-									/>
-								</Nav.Link>
+								{userData.image ? (
+									<Nav.Link className="noPointer">
+										<img
+											src={userData.image}
+											className="imgAvatar"
+											alt="avatar"
+											onClick={toUserProfile}
+											style={{ pointerEvents: 'all' }}
+										/>
+									</Nav.Link>
+								) : null}
 							</div>
 						) : (
 							<div className="flexDisplay">
