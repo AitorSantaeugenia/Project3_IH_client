@@ -1,7 +1,6 @@
 import React from 'react';
 //importing sidebar
 import Sidebar from '../../components/Sidebar/Sidebar';
-import ContactForm from '../../components/Contacto/Contacto';
 
 const Soporte = () => {
 	return (

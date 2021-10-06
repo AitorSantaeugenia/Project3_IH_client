@@ -91,3 +91,20 @@
   min-width: 80px;
   border-radius:80px;
 }
+
+.dashboardDivUsers__container h1{
+  padding:50px;
+  
+
+}
+
+.tableDashboardUsers{
+  max-width: 80%;
+  min-width: 80%;
+  margin:0 auto;
+  margin-bottom:50px !important;
+}
+
+.margin50__bottom{
+  margin-bottom:50px;
+}
