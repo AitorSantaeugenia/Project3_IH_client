@@ -54,7 +54,7 @@ function LoginPage(props) {
 		<div className="LoginPage">
 			<h1 className="h1LoginPage">Login</h1>
 			<p>
-				Nuevo en <b>Guesthotel</b>?, puedes create una cuenta en <Link to={'/signup'}> Sign Up</Link>
+				Nuevo en <b>Hotel Templater</b>?, puedes create una cuenta en <Link to={'/signup'}> Sign Up</Link>
 			</p>
 
 			<form onSubmit={handleLoginSubmit} className="formLogin">

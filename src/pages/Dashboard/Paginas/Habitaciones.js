@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 //importing sidebar
 import Sidebar from './../../../components/Sidebar/Sidebar';
-// import { Button, Spinner } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 import UploadService from '../../../services/upload.service';
 //Axios usage
 import axios from 'axios';
@@ -24,11 +24,13 @@ const PaginaHabsContacto = () => {
 	const [ precio, setPrecio ] = useState('');
 	const [ cantidad, setCantidad ] = useState('');
 	const [ imagen, setImagen ] = useState('');
+	//const [ rooms, setRooms ] = useState([]);
 
 	//tools
 	const history = useHistory();
 	const [ message, setMessage ] = useState('Habitación creada.');
-	//const [ isLoading, setIsLoading ] = useState(false);
+	const [ isLoading, setIsLoading ] = useState(false);
+	const [ isLoadingImg, setIsLoadingImg ] = useState(false);
 
 	//Coming from GET
 	const [ infoRooms, setInfoRooms ] = useState([]);
@@ -38,12 +40,13 @@ const PaginaHabsContacto = () => {
 
 		let formData = new FormData();
 		formData.append('file', e.target.files[0]);
+		setIsLoadingImg(true);
 
 		upload
 			.fileUpload(formData)
 			.then((response) => {
-				//setIsLoading(false);
 				setImagen(response.data.imageUrl);
+				setIsLoadingImg(false);
 			})
 			.catch((err) => console.log(err));
 	};
@@ -82,6 +85,8 @@ const PaginaHabsContacto = () => {
 
 				setMessage('Habitacion creada.');
 
+				setInfoRooms([ ...infoRooms, response.data ]);
+
 				// Invoke the callback function coming through the props
 				// from the ProjectDetailsPage, to refresh the project details
 				history.push('/paginas/habitaciones');
@@ -109,8 +114,8 @@ const PaginaHabsContacto = () => {
 			.get(`${API_URL}/paginas/habitaciones`, { headers: { Authorization: `Bearer ${storedToken}` } })
 			.then((response) => {
 				setInfoRooms(response.data);
-				console.log(response.data);
-				//setIsLoading(true);
+				//console.log(response.data);
+				setIsLoading(true);
 			})
 			.catch((error) => console.log(error));
 	};
@@ -204,10 +209,16 @@ const PaginaHabsContacto = () => {
 								className="form-control maxInputWidth"
 							/>
 						</div>
-
-						<button type="submit" className="btn-submit-login">
-							Crear habitación
-						</button>
+						{isLoadingImg ? (
+							<Button variant="primary" disabled>
+								<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+								Loading...
+							</Button>
+						) : (
+							<button type="submit" className="btn-submit-login">
+								Crear habitación
+							</button>
+						)}
 					</form>
 					<ToastContainer
 						position="top-right"
@@ -222,11 +233,15 @@ const PaginaHabsContacto = () => {
 					/>
 					<div className="separator" />
 				</div>
-				{infoRooms.length === 0 ? (
+				{!isLoading ? (
+					<Spinner animation="border" role="status" className="margin50__bottom margin50__top">
+						<span className="visually-hidden">Loading...</span>
+					</Spinner>
+				) : infoRooms.length === 0 ? (
 					<div className="separator"> Todavía no hay creadas habitaciones.</div>
 				) : (
 					infoRooms.map((infoRoom) => (
-						<div className="card-deck">
+						<div className="card-deck" key={infoRoom._id}>
 							<div className="card marginBottom">
 								<img className="card-img-top" src={infoRoom.imagen} alt="Room" />
 								<div className="card-body">
@@ -241,7 +256,6 @@ const PaginaHabsContacto = () => {
 								</div>
 								<div className="card-footer">
 									<small className="text-muted">
-										<button>Editar</button>
 										<button>Eliminar</button>
 									</small>
 								</div>

@@ -121,3 +121,16 @@
 .marginBottomMed{
   margin-bottom:20px;
 }
+.margin50__top{
+  margin-top:50px;
+}
+
+.btn-primary{
+  color: white !important;
+  background-color:black !important;
+  margin-top:10px;
+}
+
+.marginLesser20{
+  margin-top:0;
+}

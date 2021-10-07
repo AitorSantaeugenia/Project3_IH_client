@@ -1,6 +1,8 @@
 import './Habitaciones.css';
+//useState
+import { useState } from 'react';
 
-function Habitaciones() {
+function Habitaciones(props) {
 	return (
 		<div className="habitacionesDiv__Container">
 			<div className="card-deck">

@@ -74,7 +74,7 @@ function SignupPage(props) {
 		<div className="SignupPage">
 			<h1 className="h1SignupPage">Sign Up</h1>
 			<p>
-				Ya tienes una cuenta de <b>Guesthotel</b>?, inicia sesión en <Link to={'/login'}> Login</Link>
+				Ya tienes una cuenta de <b>Hotel Templater</b>?, inicia sesión en <Link to={'/login'}> Login</Link>
 			</p>
 
 			<form onSubmit={handleSignupSubmit} className="formLogin">

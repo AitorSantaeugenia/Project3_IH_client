@@ -60,6 +60,7 @@ function App() {
 					{/* Dashboard */}
 					<PrivateRoute exact path="/dashboard" component={Dashboard} />
 					<PrivateRoute exact path="/dashboard/usuarios" component={Usuarios} />
+					{/* <PrivateRoute exact path="/dashboard/usuarios/:id" component={Usuarios} /> */}
 					<PrivateRoute exact path="/dashboard/estadisticas" component={Estadisticas} />
 					{/* Dashboard otras */}
 					<PrivateRoute exact path="/gestor" component={Gestor} />

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 //importing sidebar
 import Sidebar from './../../../components/Sidebar/Sidebar';
-// import { Button, Spinner } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 import UploadService from '../../../services/upload.service';
 //Axios usage
 import axios from 'axios';
@@ -16,7 +16,8 @@ import { useEffect } from 'react';
 const API_URL = process.env.REACT_APP_API_URL;
 
 const PaginaTiendaDashboard = () => {
-	// const [ isLoading, setIsLoading ] = useState(false);
+	const [ isLoading, setIsLoading ] = useState(false);
+	const [ isLoadingImg, setIsLoadingImg ] = useState(false);
 	// Sendin to POST
 	const [ nombre, setNombre ] = useState('');
 	const [ info, setInfo ] = useState('');
@@ -51,9 +52,11 @@ const PaginaTiendaDashboard = () => {
 
 				setMessage('Hotel creado');
 
+				setInfoTienda(response.data);
+
 				// Invoke the callback function coming through the props
 				// from the ProjectDetailsPage, to refresh the project details
-				history.push('/dashboard');
+				history.push('/paginas/tienda');
 			})
 			.catch((error) => console.log(error));
 
@@ -70,18 +73,17 @@ const PaginaTiendaDashboard = () => {
 	};
 
 	const handleInputFile = (e) => {
-		//setIsLoading(true);
-
 		const upload = new UploadService();
 
 		let formData = new FormData();
 		formData.append('file', e.target.files[0]);
+		setIsLoadingImg(true);
 
 		upload
 			.fileUpload(formData)
 			.then((response) => {
-				//setIsLoading(false);
 				setImagen(response.data.imageUrl);
+				setIsLoadingImg(false);
 			})
 			.catch((err) => console.log(err));
 	};
@@ -90,13 +92,14 @@ const PaginaTiendaDashboard = () => {
 		// Get the token from the localStorage
 		const storedToken = localStorage.getItem('authToken');
 
+		setIsLoading(true);
 		// Send the token through the request "Authorization" Headers
 		axios
 			.get(`${API_URL}/paginas/tienda`, { headers: { Authorization: `Bearer ${storedToken}` } })
 			.then((response) => {
 				setInfoTienda(response.data[0]);
 				//console.log(response.data[0]);
-				//setIsLoading(true);
+				setIsLoading(false);
 			})
 			.catch((error) => console.log(error));
 	};
@@ -123,7 +126,11 @@ const PaginaTiendaDashboard = () => {
 	return (
 		<div>
 			<Sidebar />
-			{!infoTienda ? (
+			{isLoading ? (
+				<Spinner animation="border" role="status" className="margin50__bottom margin50__top">
+					<span className="visually-hidden">Loading...</span>
+				</Spinner>
+			) : !infoTienda ? (
 				<div className="dashboardDiv__container2">
 					<h1 className="dashboardDiv__h1">Crea la Tienda</h1>
 					<form className="formLogin text-center2" onSubmit={HandlseSubmitTienda}>
@@ -159,10 +166,16 @@ const PaginaTiendaDashboard = () => {
 								className="form-control maxInputWidth"
 							/>
 						</div>
-
-						<button type="submit" className="btn-submit-login">
-							Crear tienda
-						</button>
+						{isLoadingImg ? (
+							<Button variant="primary" disabled>
+								<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+								Loading...
+							</Button>
+						) : (
+							<button type="submit" className="btn-submit-login">
+								Crear tienda
+							</button>
+						)}
 					</form>
 				</div>
 			) : (
@@ -231,7 +244,7 @@ const PaginaTiendaDashboard = () => {
 						</button>
 					</form>
 				</div>
-			)};
+			)}
 			<ToastContainer
 				position="top-right"
 				autoClose={5000}

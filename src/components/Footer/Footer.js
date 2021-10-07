@@ -92,7 +92,7 @@ const FooterMenu = () => {
 			</MDBContainer>
 			<div className="footer-copyright py-3 maringTopFooter">
 				<MDBContainer fluid>
-					&copy; {new Date().getFullYear()} Copyright: <a href="guesthotel.com"> guesthotel.com </a>
+					&copy; {new Date().getFullYear()} Copyright: <a href="guesthotel.com"> hoteltemplater.com </a>
 				</MDBContainer>
 				{showButton && (
 					<button onClick={scrollToTop} className="back-to-top">

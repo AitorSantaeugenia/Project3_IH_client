@@ -9,26 +9,26 @@ import UploadService from '../../services/upload.service';
 import { AuthContext } from '../../context/auth.context'; // <== IMPORT
 
 const Perfil = () => {
-	const [ isLoading, setIsLoading ] = useState(false);
+	//const [ isLoading, setIsLoading ] = useState(false);
 	const { isLoggedIn, user, userData, logOutUser } = useContext(AuthContext);
-	const [ image, setImage ] = useState('');
+	//const [ image, setImage ] = useState('');
 
-	const handleInputFile = (e) => {
-		setIsLoading(true);
+	// const handleInputFile = (e) => {
+	// 	setIsLoading(true);
 
-		const upload = new UploadService();
+	// 	const upload = new UploadService();
 
-		let formData = new FormData();
-		formData.append('file', e.target.files[0]);
+	// 	let formData = new FormData();
+	// 	formData.append('file', e.target.files[0]);
 
-		upload
-			.fileUpload(formData)
-			.then((response) => {
-				setIsLoading(false);
-				setImage(response.data.imageUrl);
-			})
-			.catch((err) => console.log(err));
-	};
+	// 	upload
+	// 		.fileUpload(formData)
+	// 		.then((response) => {
+	// 			setIsLoading(false);
+	// 			setImage(response.data.imageUrl);
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// };
 
 	return (
 		<div>
@@ -53,7 +53,7 @@ const Perfil = () => {
 						<input
 							type="text"
 							name="name"
-							// value="{Name}"
+							value={user.name}
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
 							placeholder="Nombre..."
@@ -64,21 +64,21 @@ const Perfil = () => {
 						<input
 							type="email"
 							name="email"
-							// value="{Name}"
+							value={user.email}
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
 							placeholder="Email..."
 						/>
 					</div>
-					<div className="flexRow">
-						<label className="text-left">Password</label>
+					<div className="flexRow hidden">
+						<label className="text-left">ID</label>
 						<input
-							type="password"
-							name="password"
-							// value="{Name}"
+							type="email"
+							name="email"
+							value={user._id}
 							onChange="{handleName}"
 							className="form-control maxInputWidth"
-							placeholder="Password..."
+							placeholder="Email..."
 						/>
 					</div>
 					<div className="flexRow">
@@ -86,7 +86,7 @@ const Perfil = () => {
 						<input
 							type="file"
 							name="file"
-							onChange={handleInputFile}
+							//onChange={handleInputFile}
 							className="form-control maxInputWidth"
 						/>
 					</div>

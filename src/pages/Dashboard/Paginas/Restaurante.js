@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 //importing sidebar
 import Sidebar from './../../../components/Sidebar/Sidebar';
-// import { Button, Spinner } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 import UploadService from '../../../services/upload.service';
 //Axios usage
 import axios from 'axios';
@@ -16,7 +16,8 @@ import { useEffect } from 'react';
 const API_URL = process.env.REACT_APP_API_URL;
 
 const PaginaRestauranteDashboard = () => {
-	// const [ isLoading, setIsLoading ] = useState(false);
+	const [ isLoading, setIsLoading ] = useState(false);
+	const [ isLoadingImg, setIsLoadingImg ] = useState(false);
 	// Sendin to POST
 	const [ nombre, setNombre ] = useState('');
 	const [ info, setInfo ] = useState('');
@@ -53,9 +54,11 @@ const PaginaRestauranteDashboard = () => {
 
 				setMessage('Restaurante creado');
 
+				setInfoRestaurant(response.data);
+
 				// Invoke the callback function coming through the props
 				// from the ProjectDetailsPage, to refresh the project details
-				history.push('/dashboard');
+				history.push('/paginas/restaurante');
 			})
 			.catch((error) => console.log(error));
 
@@ -78,12 +81,13 @@ const PaginaRestauranteDashboard = () => {
 
 		let formData = new FormData();
 		formData.append('file', e.target.files[0]);
+		setIsLoadingImg(true);
 
 		upload
 			.fileUpload(formData)
 			.then((response) => {
-				//setIsLoading(false);
 				setImagen(response.data.imageUrl);
+				setIsLoadingImg(false);
 			})
 			.catch((err) => console.log(err));
 	};
@@ -91,14 +95,32 @@ const PaginaRestauranteDashboard = () => {
 	const getAllInfoRestaurante = () => {
 		// Get the token from the localStorage
 		const storedToken = localStorage.getItem('authToken');
-
+		setIsLoading(true);
 		// Send the token through the request "Authorization" Headers
 		axios
 			.get(`${API_URL}/paginas/restaurante`, { headers: { Authorization: `Bearer ${storedToken}` } })
 			.then((response) => {
 				setInfoRestaurant(response.data[0]);
-				//console.log(response.data[0]);
-				//setIsLoading(true);
+				setIsLoading(false);
+			})
+			.catch((error) => console.log(error));
+	};
+
+	const handleDeleteRestaurante = (idRestaurante) => {
+		const storedToken2 = localStorage.getItem('authToken');
+
+		//console.log(idRestaurante);
+
+		axios
+			.delete(`${API_URL}/paginas/restaurante/${idRestaurante}`, {
+				headers: { Authorization: `Bearer ${storedToken2}` }
+			})
+			.then((response) => {
+				//console.log(response.data);
+				//const filteredRestaurante = infoRestaurant.filter((element) => element._id !== idRestaurante);
+				setInfoRestaurant('');
+
+				history.push('/paginas/restaurante');
 			})
 			.catch((error) => console.log(error));
 	};
@@ -126,7 +148,11 @@ const PaginaRestauranteDashboard = () => {
 	return (
 		<div>
 			<Sidebar />
-			{!infoRestaurant ? (
+			{isLoading ? (
+				<Spinner animation="border" role="status" className="margin50__bottom margin50__top">
+					<span className="visually-hidden">Loading...</span>
+				</Spinner>
+			) : !infoRestaurant ? (
 				<div className="dashboardDiv__container2">
 					<h1 className="dashboardDiv__h1">Crea el restaurante</h1>
 					<form className="formLogin text-center2" onSubmit={HandlseSubmitTienda}>
@@ -135,7 +161,7 @@ const PaginaRestauranteDashboard = () => {
 							<input
 								type="text"
 								name="nombre"
-								// value="{Name}"
+								value={nombre}
 								onChange={(e) => setNombre(e.target.value)}
 								className="form-control maxInputWidth"
 								placeholder="Nombre..."
@@ -147,7 +173,7 @@ const PaginaRestauranteDashboard = () => {
 							<input
 								type="text"
 								name="info"
-								// value="{Name}"
+								value={info}
 								onChange={(e) => setInfo(e.target.value)}
 								className="form-control maxInputWidth"
 								placeholder="Info..."
@@ -162,10 +188,16 @@ const PaginaRestauranteDashboard = () => {
 								className="form-control maxInputWidth"
 							/>
 						</div>
-
-						<button type="submit" className="btn-submit-login">
-							Crear restaurante
-						</button>
+						{isLoadingImg ? (
+							<Button variant="primary" disabled>
+								<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+								Loading...
+							</Button>
+						) : (
+							<button type="submit" className="btn-submit-login">
+								Crear restaurante
+							</button>
+						)}
 					</form>
 				</div>
 			) : (
@@ -231,16 +263,20 @@ const PaginaRestauranteDashboard = () => {
 								disabled
 							/>
 						</div>
-
 						<button type="submit" className="btn-submit-login">
 							Modificar restaurante
 						</button>
-						<button type="submit" className="btn-submit-login">
-							Eliminar restaurante
-						</button>
 					</form>
+					<button
+						className="btn-submit-login marginLesser20"
+						onClick={() => {
+							handleDeleteRestaurante(infoRestaurant._id);
+						}}
+					>
+						Eliminar restaurante
+					</button>
 				</div>
-			)};
+			)}
 			<ToastContainer
 				position="top-right"
 				autoClose={5000}
