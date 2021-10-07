@@ -263,9 +263,9 @@ const PaginaRestauranteDashboard = () => {
 								disabled
 							/>
 						</div>
-						<button type="submit" className="btn-submit-login">
+						{/* <button type="submit" className="btn-submit-login">
 							Modificar restaurante
-						</button>
+						</button> */}
 					</form>
 					<button
 						className="btn-submit-login marginLesser20"

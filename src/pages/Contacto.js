@@ -9,10 +9,17 @@ import { Spinner } from 'react-bootstrap';
 import axios from 'axios';
 //use Effect needed
 import { useEffect, useState } from 'react';
+//toastify
+import { ToastContainer, toast } from 'react-toastify';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 function Contacto() {
+	const [ message, setMessage ] = useState('Email enviado.');
+	const [ name, setName ] = useState('');
+	const [ msg, setMsg ] = useState('');
+	const [ email, setEmail ] = useState('');
+	const [ asunto, setAsunto ] = useState('');
 	const [ infoContacto, setInfoContacto ] = useState([]);
 	const [ isLoading, setIsLoading ] = useState(false);
 
@@ -37,6 +44,23 @@ function Contacto() {
 		getAllFromContactoHotel();
 	}, []);
 
+	const sendEmailToMe = () => {
+		toast(`⚠ ${message}`, {
+			position: 'top-right',
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined
+		});
+
+		setName('');
+		setMsg('');
+		setAsunto('');
+		setEmail('');
+	};
+
 	return (
 		<div className="carousel__Div">
 			<CarouselSingle />
@@ -55,11 +79,12 @@ function Contacto() {
 							</div>
 						</div>
 						<div className="infoHotel__contactForm">
-							<form id="contact-form" method="POST" className="fg-center">
+							<form id="contact-form" className="fg-center">
 								<div className="form-group">
 									<label htmlFor="name">Nombre</label>
 									<input
 										type="text"
+										//value={name}
 										className="form-control inputSizeController"
 										placeholder="Nombre..."
 									/>
@@ -68,6 +93,7 @@ function Contacto() {
 									<label htmlFor="exampleInputEmail1">Email</label>
 									<input
 										type="email"
+										//value={email}
 										className="form-control inputSizeController"
 										aria-describedby="emailHelp"
 										placeholder="Email..."
@@ -79,6 +105,7 @@ function Contacto() {
 										type="text"
 										className="form-control inputSizeController"
 										placeholder="Asunto..."
+										//value={asunto}
 									/>
 								</div>
 								<div className="form-group">
@@ -86,13 +113,17 @@ function Contacto() {
 									<textarea
 										className="form-control no-resize inputSizeController"
 										rows="5"
+										//value={msg}
 										placeholder="Mensaje..."
 									/>
 								</div>
-								<button type="submit" className="btn btn-primary inputSizeController marginTopButton">
-									Enviar
-								</button>
 							</form>
+							<button
+								className="btn btn-primary inputSizeController marginTopButton"
+								onClick={sendEmailToMe}
+							>
+								Enviar
+							</button>
 						</div>
 					</div>
 				))
@@ -103,6 +134,17 @@ function Contacto() {
 			) : (
 				<ContactForm />
 			)}
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 			<Serviciosreserva />
 			<Mapa />
 		</div>
