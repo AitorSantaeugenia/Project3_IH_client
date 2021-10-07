@@ -110,6 +110,25 @@ const PaginaTiendaDashboard = () => {
 		getAllInfoTienda();
 	}, []);
 
+	const handleDeleteTienda = (idTienda) => {
+		const storedToken2 = localStorage.getItem('authToken');
+
+		//console.log(idRestaurante);
+
+		axios
+			.delete(`${API_URL}/paginas/tienda/${idTienda}`, {
+				headers: { Authorization: `Bearer ${storedToken2}` }
+			})
+			.then((response) => {
+				//console.log(response.data);
+				//const filteredRestaurante = infoRestaurant.filter((element) => element._id !== idRestaurante);
+				setInfoTienda('');
+
+				history.push('/paginas/tienda');
+			})
+			.catch((error) => console.log(error));
+	};
+
 	const showOffInfoTienda = () => {
 		let showTienda = document.getElementById('menuTienda');
 		let showFooterNavTienda = document.getElementById('footerNavTienda');
@@ -239,10 +258,15 @@ const PaginaTiendaDashboard = () => {
 						<button type="submit" className="btn-submit-login">
 							Modificar tienda
 						</button>
-						<button type="submit" className="btn-submit-login">
-							Eliminar tienda
-						</button>
 					</form>
+					<button
+						className="btn-submit-login marginLesser20"
+						onClick={() => {
+							handleDeleteTienda(infoTienda._id);
+						}}
+					>
+						Eliminar restaurante
+					</button>
 				</div>
 			)}
 			<ToastContainer
