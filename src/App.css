@@ -108,3 +108,16 @@
 .margin50__bottom{
   margin-bottom:50px;
 }
+
+.imagenDashboardTienda{
+  min-width:350px;
+  max-width:350px;
+}
+
+.hidden{
+	display:none;
+}
+
+.marginBottomMed{
+  margin-bottom:20px;
+}

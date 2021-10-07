@@ -1,17 +1,108 @@
 import React from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 //importing sidebar
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { Button, Spinner } from 'react-bootstrap';
-import UploadService from '../../services/upload.service';
+// import { Button, Spinner } from 'react-bootstrap';
+// import UploadService from '../../services/upload.service';
+//Axios usage
+import axios from 'axios';
+//service for Imagenes
+import UploadService from './../../services/upload.service';
+//history
+import { useHistory } from 'react-router-dom';
+//toastify
+import { ToastContainer, toast } from 'react-toastify';
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function Dashboard() {
-	const [ isLoading, setIsLoading ] = useState(false);
+	const [ nombre, setNombre ] = useState('');
+	const [ stars, setStars ] = useState('');
+	const [ info, setInfo ] = useState('');
+	const [ catchPhrase, setCatchPhrase ] = useState('');
+	const [ catchTwo, setCatchTwo ] = useState('');
+	const [ direct, setDirect ] = useState('');
+	const [ codigoP, setCodigoP ] = useState('');
+	const [ telf, setTelf ] = useState('');
+	const [ email, setEmail ] = useState('');
+	const [ latitud, setLatitud ] = useState('');
+	const [ altitud, setAltitud ] = useState('');
+	const [ logo, setLogo ] = useState('');
 	const [ image, setImage ] = useState('');
+	const [ otherImage, setOtherImage ] = useState('');
+	//other consts
+	const history = useHistory();
+	const [ message, setMessage ] = useState('Hotel creado.');
+	const [ hotelInfo, setHotelInfo ] = useState('');
+
+	const HandleSubmitHotel = (e) => {
+		e.preventDefault();
+
+		//setters
+		const requestBody = {
+			nombre,
+			stars,
+			info,
+			catchPhrase,
+			catchTwo,
+			direct,
+			codigoP,
+			telf,
+			email,
+			latitud,
+			altitud,
+			logo,
+			image,
+			otherImage
+		};
+
+		// Get the token from the localStorage
+		const storedToken = localStorage.getItem('authToken');
+
+		// Send the token through the request "Authorization" Headers
+		axios
+			.post(`${API_URL}/dashboard`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
+			.then((response) => {
+				// Reset the state to clear the inputs
+				setNombre('');
+				setStars('');
+				setInfo('');
+				setCatchPhrase('');
+				setCatchTwo('');
+				setDirect('');
+				setCodigoP('');
+				setTelf('');
+				setEmail('');
+				setLatitud('');
+				setAltitud('');
+				setLogo('');
+				setImage('');
+				setOtherImage('');
+
+				setMessage('Hotel creado');
+
+				// Invoke the callback function coming through the props
+				// from the ProjectDetailsPage, to refresh the project details
+				history.push('/dashboard');
+			})
+			.catch((error) => console.log(error));
+
+		//toastify
+		toast(`⚠ ${message}`, {
+			position: 'top-right',
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined
+		});
+
+		document.getElementById('botonCrearHotel').style = 'display: none';
+	};
 
 	const handleInputFile = (e) => {
-		setIsLoading(true);
-
 		const upload = new UploadService();
 
 		let formData = new FormData();
@@ -20,171 +111,235 @@ function Dashboard() {
 		upload
 			.fileUpload(formData)
 			.then((response) => {
-				setIsLoading(false);
+				setLogo(response.data.imageUrl);
+			})
+			.catch((err) => console.log(err));
+	};
+	const handleInputImage = (e) => {
+		const upload = new UploadService();
+
+		let formData = new FormData();
+		formData.append('file', e.target.files[0]);
+
+		upload
+			.fileUpload(formData)
+			.then((response) => {
 				setImage(response.data.imageUrl);
 			})
 			.catch((err) => console.log(err));
 	};
+	const handleInputImages = (e) => {
+		const upload = new UploadService();
+
+		let formData = new FormData();
+		formData.append('file', e.target.files[0]);
+
+		upload
+			.fileUpload(formData)
+			.then((response) => {
+				setOtherImage(response.data.imageUrl);
+			})
+			.catch((err) => console.log(err));
+	};
+
+	const getHotelInfo = () => {
+		// Get the token from the localStorage
+		const storedToken = localStorage.getItem('authToken');
+
+		// Send the token through the request "Authorization" Headers
+		axios
+			.get(`${API_URL}/dashboard`, { headers: { Authorization: `Bearer ${storedToken}` } })
+			.then((response) => {
+				setHotelInfo(response.data);
+			})
+			.catch((error) => console.log(error));
+	};
+
+	// We set this effect will run only once, after the initial render
+	// by setting the empty dependency array - []
+	useEffect(() => {
+		getHotelInfo();
+	}, []);
 
 	return (
 		<div>
 			<Sidebar />
-			<div className="dashboardDiv__container2">
-				<h1 className="dashboardDiv__h1">Crea tu Hotel</h1>
-				<form className="formLogin text-center2">
-					<div className="flexRow">
-						<label className="text-left">Name</label>
-						<input
-							type="text"
-							name="name"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Name..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Estrellas</label>
-						<input
-							type="number"
-							name="estrellas"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Estrellas..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Información</label>
-						<input
-							type="text"
-							name="info"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Info..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Catchphrase</label>
-						<input
-							type="text"
-							name="catchphrase"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Catchpharse..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">2º Catchphrase</label>
-						<input
-							type="text"
-							name="catchphrasedos"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Catchpharse 2..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Dirección</label>
-						<input
-							type="text"
-							name="direccion"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Dirección..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">CP</label>
-						<input
-							type="number"
-							name="codigopostal"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Código postal..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Teléfono</label>
-						<input
-							type="text"
-							name="telefono"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Telefono..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Email</label>
-						<input
-							type="email"
-							name="email"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Email..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Altitud</label>
-						<input
-							type="text"
-							name="altitud"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Altitud..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Latitud</label>
-						<input
-							type="text"
-							name="latitud"
-							// value="{Name}"
-							onChange="{handleName}"
-							className="form-control maxInputWidth"
-							placeholder="Latitud..."
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Logo</label>
-						<input
-							type="file"
-							name="file"
-							onChange={handleInputFile}
-							className="form-control maxInputWidth"
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Imagen principal</label>
-						<input
-							type="file"
-							name="file"
-							onChange={handleInputFile}
-							className="form-control maxInputWidth"
-						/>
-					</div>
-					<div className="flexRow">
-						<label className="text-left">Imagenes</label>
-						<input
-							type="file"
-							name="file"
-							onChange={handleInputFile}
-							className="form-control maxInputWidth"
-						/>
-					</div>
-					<button type="submit" className="btn-submit-login">
-						Crear hotel
-					</button>
-				</form>
-			</div>
+			{hotelInfo ? (
+				<div className="dashboardDiv__container2">
+					<h1 className="dashboardDiv__h1">Hotel creado</h1>
+				</div>
+			) : (
+				<div className="dashboardDiv__container2">
+					<h1 className="dashboardDiv__h1">Crea tu Hotel</h1>
+					<form className="formLogin text-center2" onSubmit={HandleSubmitHotel}>
+						<div className="flexRow">
+							<label className="text-left">Name</label>
+							<input
+								type="text"
+								name="nombre"
+								//value={nombre}
+								onChange={(e) => setNombre(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Name..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Estrellas</label>
+							<input
+								type="number"
+								name="estrellas"
+								//value={stars}
+								onChange={(e) => setStars(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Estrellas..."
+								min="0"
+								max="5"
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Información</label>
+							<input
+								type="text"
+								name="info"
+								//value={info}
+								onChange={(e) => setInfo(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Info..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Catchphrase</label>
+							<input
+								type="text"
+								name="catchPhrase"
+								//value={catchPhrase}
+								onChange={(e) => setCatchPhrase(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Catchpharse..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">2º Catchphrase</label>
+							<input
+								type="text"
+								name="catchTwo"
+								//value={catchTwo}
+								onChange={(e) => setCatchTwo(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Catchpharse 2..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Dirección</label>
+							<input
+								type="text"
+								name="direct"
+								//value={direct}
+								onChange={(e) => setDirect(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Dirección..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">CP</label>
+							<input
+								type="number"
+								name="codigoP"
+								//value={codigoP}
+								onChange={(e) => setCodigoP(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Código postal..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Teléfono</label>
+							<input
+								type="text"
+								name="telf"
+								//value={telf}
+								onChange={(e) => setTelf(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Telefono..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Email</label>
+							<input
+								type="email"
+								name="email"
+								//value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Email..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Altitud</label>
+							<input
+								type="text"
+								name="altitud"
+								//value={altitud}
+								onChange={(e) => setAltitud(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Altitud..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Latitud</label>
+							<input
+								type="text"
+								name="latitud"
+								//value={latitud}
+								onChange={(e) => setLatitud(e.target.value)}
+								className="form-control maxInputWidth"
+								placeholder="Latitud..."
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Logo</label>
+							<input
+								type="file"
+								name="logo"
+								//value={logo}
+								onChange={handleInputFile}
+								className="form-control maxInputWidth"
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Imagen principal</label>
+							<input
+								type="file"
+								name="image"
+								onChange={handleInputImage}
+								className="form-control maxInputWidth"
+							/>
+						</div>
+						<div className="flexRow">
+							<label className="text-left">Imagenes</label>
+							<input
+								type="file"
+								name="otherImage"
+								onChange={handleInputImages}
+								className="form-control maxInputWidth"
+							/>
+						</div>
+						<button type="submit" className="btn-submit-login" id="botonCrearHotel">
+							Crear hotel
+						</button>
+					</form>
+					<ToastContainer
+						position="top-right"
+						autoClose={5000}
+						hideProgressBar={false}
+						newestOnTop={false}
+						closeOnClick
+						rtl={false}
+						pauseOnFocusLoss
+						draggable
+						pauseOnHover
+					/>
+				</div>
+			)};
 		</div>
 	);
 }

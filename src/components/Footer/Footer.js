@@ -65,19 +65,19 @@ const FooterMenu = () => {
 							<li className="list-unstyled">
 								{/* eslint-disable-next-line */}
 								<a onClick={toRooms} className="noDecoration colorWhite yesPointer">
-									Hotel
+									Habitaciones
 								</a>
 							</li>
-							<li className="list-unstyled">
+							<li className="list-unstyled" id="footerNavRestaurante">
 								{/* eslint-disable-next-line */}
 								<a onClick={toRestaurant} className="noDecoration colorWhite yesPointer">
-									Reservas
+									Restaurante
 								</a>
 							</li>
-							<li className="list-unstyled">
+							<li className="list-unstyled" id="footerNavTienda">
 								{/* eslint-disable-next-line */}
 								<a onClick={toTienda} className="noDecoration colorWhite yesPointer">
-									Restaurante
+									Tienda
 								</a>
 							</li>
 							<li className="list-unstyled">

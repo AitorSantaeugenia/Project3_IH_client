@@ -17,12 +17,13 @@ export const SidebarData = [
 				title: 'Usuarios',
 				path: '/dashboard/usuarios',
 				icon: <IoIcons.IoMdPeople />
-			},
-			{
-				title: 'Estadísticas',
-				path: '/dashboard/estadisticas',
-				icon: <AiIcons.AiOutlineSchedule />
 			}
+			// },
+			// {
+			// 	title: 'Estadísticas',
+			// 	path: '/dashboard/estadisticas',
+			// 	icon: <AiIcons.AiOutlineSchedule />
+			// }
 		]
 	},
 	{
@@ -54,29 +55,30 @@ export const SidebarData = [
 				title: 'Tienda',
 				path: '/paginas/tienda',
 				icon: <IoIcons.IoIosPaper />
-			},
-			{
-				title: 'Contacto',
-				path: '/paginas/contacto',
-				icon: <IoIcons.IoIosPaper />
 			}
+			// },
+			// {
+			// 	title: 'Contacto',
+			// 	path: '/paginas/contacto',
+			// 	icon: <IoIcons.IoIosPaper />
+			// }
 		]
 	},
-	{
-		title: 'Gestor de reservas',
-		path: '/gestor',
-		icon: <FaIcons.FaCartPlus />
-	},
+	// {
+	// 	title: 'Gestor de reservas',
+	// 	path: '/gestor',
+	// 	icon: <FaIcons.FaCartPlus />
+	// },
 	{
 		title: 'Perfil',
 		path: '/perfil',
 		icon: <AiIcons.AiOutlineUser />
 	},
-	{
-		title: 'Mensajes',
-		path: '/mensajes',
-		icon: <FaIcons.FaEnvelopeOpenText />
-	},
+	// {
+	// 	title: 'Mensajes',
+	// 	path: '/mensajes',
+	// 	icon: <FaIcons.FaEnvelopeOpenText />
+	// },
 	{
 		title: 'Soporte',
 		path: '/soporte',

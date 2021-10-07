@@ -48,9 +48,15 @@ function NavbarMenu() {
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
 						<Nav.Link onClick={toHome}>Home</Nav.Link>
-						<Nav.Link onClick={toRooms}>Habitaciones</Nav.Link>
-						<Nav.Link onClick={toRestaurante}>Restaurante</Nav.Link>
-						<Nav.Link onClick={toTienda}>Tienda</Nav.Link>
+						<Nav.Link onClick={toRooms} id="menuHabitaciones">
+							Habitaciones
+						</Nav.Link>
+						<Nav.Link onClick={toRestaurante} id="menuRestaurante">
+							Restaurante
+						</Nav.Link>
+						<Nav.Link onClick={toTienda} id="menuTienda">
+							Tienda
+						</Nav.Link>
 						<Nav.Link onClick={toContacto}>Contacto</Nav.Link>
 					</Nav>
 					<Nav>

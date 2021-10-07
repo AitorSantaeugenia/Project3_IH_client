@@ -21,16 +21,6 @@ function LoginPage(props) {
 	const handleLoginSubmit = (e) => {
 		e.preventDefault();
 
-		toast(`⚠ ${errorMessage}`, {
-			position: 'top-right',
-			autoClose: 5000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined
-		});
-
 		const requestBody = { email, password };
 
 		axios
@@ -40,6 +30,7 @@ function LoginPage(props) {
 				const token = response.data.authToken;
 				logInUser(token);
 				setUserData(response.data.user);
+				setErrorMessage('');
 				props.history.push('/');
 				//console.log(response);
 			})
@@ -47,6 +38,16 @@ function LoginPage(props) {
 				const errorDescription = error.response.data.message;
 				setErrorMessage(errorDescription);
 			});
+
+		toast(`⚠ ${errorMessage}`, {
+			position: 'top-right',
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined
+		});
 	};
 
 	return (
