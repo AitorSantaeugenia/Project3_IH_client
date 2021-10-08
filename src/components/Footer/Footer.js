@@ -44,14 +44,18 @@ const FooterMenu = () => {
 			<MDBContainer fluid className="text-center text-md-left margin-top20">
 				<MDBRow>
 					<MDBCol md="4">
-						<p className="firstP__Footer">Nombre hotel</p>
-						<p className="P__Footer">Dirección</p>
-						<p className="P__Footer">CP</p>
-						<p className="P__Footer">telefono</p>
-						<p className="P__Footer">email</p>
+						<p className="firstP__Footer">Hotel Catalunya</p>
+						<p className="P__Footer">C/ Falsa 123</p>
+						<p className="P__Footer">9209</p>
+						<p className="P__Footer">669596326</p>
+						<p className="P__Footer">hotelcatalunya@gmail.com</p>
 					</MDBCol>
 					<MDBCol md="4">
-						<img src="../../images/in-color.jpg" alt="hotel" />
+						<img
+							src="https://res.cloudinary.com/aitorsantaeugenia/image/upload/v1633554482/project3_ironhack_hotel/ky05b2v6mkyr5spp5f53.png"
+							alt="hotel"
+							className="logoFooterImg"
+						/>
 					</MDBCol>
 					<MDBCol md="4">
 						<h5 className="title">Mapa web</h5>

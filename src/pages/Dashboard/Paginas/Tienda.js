@@ -254,10 +254,6 @@ const PaginaTiendaDashboard = () => {
 								disabled
 							/>
 						</div>
-
-						<button type="submit" className="btn-submit-login">
-							Modificar tienda
-						</button>
 					</form>
 					<button
 						className="btn-submit-login marginLesser20"

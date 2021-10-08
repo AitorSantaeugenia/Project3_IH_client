@@ -43,7 +43,7 @@ function NavbarMenu() {
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 			<Container>
-				<Navbar.Brand>Hotel name</Navbar.Brand>
+				<Navbar.Brand>Hotel Catalunya</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">

@@ -1,7 +1,7 @@
 /* Classes for Carousel */
 .image__Carousel2{
 	height:100% !important;
-	width:80% !important;
+	width:100% !important;
 
 }
 .carusel-item-2 {
@@ -11,6 +11,7 @@
   .sr-only{
 	display:none;
   }
+
   .bgBackColor{
 	background-color: rgba(240, 248, 255, 0.425);
 	color:black !important;

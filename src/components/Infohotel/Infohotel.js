@@ -2,7 +2,8 @@ import React from 'react';
 import './Infohotel.css';
 import { BsFillStarFill } from 'react-icons/bs';
 
-const Infohotel = () => {
+const Infohotel = (props) => {
+	//console.log(props[0].altitud);
 	return (
 		<div className="divInfoHotel__Container">
 			<div className="divInfoHotel__HotelName">Hotel name</div>

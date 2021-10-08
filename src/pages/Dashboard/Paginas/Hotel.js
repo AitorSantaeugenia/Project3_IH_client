@@ -185,7 +185,7 @@ const PaginaHotelDashboard = () => {
 						/>
 					</div>
 					<button type="submit" className="btn-submit-login">
-						Crear hotel
+						Modifica el hotel
 					</button>
 				</form>
 			</div>

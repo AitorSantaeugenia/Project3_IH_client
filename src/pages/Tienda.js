@@ -2,7 +2,7 @@ import ReservarBuscador from '../components/Reservar/Reservar';
 import TiendaComponente from '../components/Tienda/Tienda';
 import Serviciosreserva from '../components/Serviciosreserva/Serviciosres';
 import Mapa from '../components/Mapa/Mapa';
-import CarouselSingle from '../components/CarouselSingle/CarouselSingle';
+import CarouselSingle from '../components/CaruselSingleTienda/CarouselSingleTienda';
 import { Spinner } from 'react-bootstrap';
 //Axios usage
 import axios from 'axios';

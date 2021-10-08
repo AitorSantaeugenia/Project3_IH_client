@@ -7,6 +7,7 @@ import Comentarios from '../components/Comentarios/Comentarios';
 import Reconocmientos from '../components/Reconocimientos/Reconocimientos';
 import Serviciosreserva from '../components/Serviciosreserva/Serviciosres';
 import Mapa from '../components/Mapa/Mapa';
+import { BsFillStarFill } from 'react-icons/bs';
 
 //tools
 import { useState, useEffect } from 'react';
@@ -24,8 +25,8 @@ function HomePage() {
 		axios
 			.get(`${API_URL}/`, { headers: { Authorization: `Bearer ${storedToken}` } })
 			.then((response) => {
-				setInfo(response.data);
-				console.log(response);
+				setInfo(response.data[0]);
+				//console.log(response.data[0]);
 				//setIsLoading(true);
 			})
 			.catch((error) => console.log(error));
@@ -39,7 +40,22 @@ function HomePage() {
 		<div className="carousel__Div">
 			<DemoCarousel />
 			<Reservar />
-			<Infohotel />
+			{info ? (
+				<div className="divInfoHotel__Container">
+					<div className="divInfoHotel__HotelName">{info.nombre}</div>
+					<div className="divInfoHotel__Stars">
+						<BsFillStarFill className="react-icons__Star" />
+						<BsFillStarFill className="react-icons__Star" />
+						<BsFillStarFill className="react-icons__Star" />
+						<BsFillStarFill className="react-icons__Star" />
+					</div>
+					<div className="divInfoHotel__Catchphrase">{info.catchPhrase}</div>
+					<div className="divInfoHotel__InfoHotel">{info.info}</div>
+					<div className="separator" />
+				</div>
+			) : (
+				<Infohotel props={info} />
+			)}
 			<Servicioshotel />
 			<Comentarios />
 			<Reconocmientos />

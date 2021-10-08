@@ -3,7 +3,7 @@ import ReservarBuscador from '../components/ReservarBuscador/ReservarBuscador';
 import Habitaciones from '../components/Habitaciones/Habitaciones';
 import Serviciosreserva from '../components/Serviciosreserva/Serviciosres';
 import Mapa from '../components/Mapa/Mapa';
-import CarouselSingle from '../components/CarouselSingle/CarouselSingle';
+import CarouselSingle from '../components/CaruselSingleRoom/CarouselSingleRoom';
 import { Spinner } from 'react-bootstrap';
 //Axios usage
 import axios from 'axios';

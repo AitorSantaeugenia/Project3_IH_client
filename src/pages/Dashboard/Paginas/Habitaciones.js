@@ -105,6 +105,26 @@ const PaginaHabsContacto = () => {
 		});
 	};
 
+	const handleDeleteHabitaciones = (idHabs) => {
+		const storedToken2 = localStorage.getItem('authToken');
+
+		//console.log(idRestaurante);
+
+		axios
+			.delete(`${API_URL}/paginas/habitaciones/${idHabs}`, {
+				headers: { Authorization: `Bearer ${storedToken2}` }
+			})
+			.then((response) => {
+				//console.log(response.data);
+				//const filteredRestaurante = infoRestaurant.filter((element) => element._id !== idRestaurante);
+				const filteredRoom = infoRooms.filter((element) => element._id !== idHabs);
+				setInfoRooms(filteredRoom);
+
+				history.push('/paginas/habitaciones');
+			})
+			.catch((error) => console.log(error));
+	};
+
 	const getAllInfoRooms = () => {
 		// Get the token from the localStorage
 		const storedToken = localStorage.getItem('authToken');
@@ -256,7 +276,14 @@ const PaginaHabsContacto = () => {
 								</div>
 								<div className="card-footer">
 									<small className="text-muted">
-										<button>Eliminar</button>
+										<button
+											className="btn-submit-login marginLesser20"
+											onClick={() => {
+												handleDeleteHabitaciones(infoRoom._id);
+											}}
+										>
+											Eliminar
+										</button>
 									</small>
 								</div>
 							</div>

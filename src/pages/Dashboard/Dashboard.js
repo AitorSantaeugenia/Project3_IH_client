@@ -13,6 +13,7 @@ import UploadService from './../../services/upload.service';
 import { useHistory } from 'react-router-dom';
 //toastify
 import { ToastContainer, toast } from 'react-toastify';
+import { Table } from 'react-bootstrap';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -150,7 +151,8 @@ function Dashboard() {
 		axios
 			.get(`${API_URL}/dashboard`, { headers: { Authorization: `Bearer ${storedToken}` } })
 			.then((response) => {
-				setHotelInfo(response.data);
+				setHotelInfo(response.data[0]);
+				console.log(response.data[0]);
 			})
 			.catch((error) => console.log(error));
 	};
@@ -166,7 +168,73 @@ function Dashboard() {
 			<Sidebar />
 			{hotelInfo ? (
 				<div className="dashboardDiv__container2">
-					<h1 className="dashboardDiv__h1">Hotel creado</h1>
+					<h1 className="dashboardDiv__h1">Hotel creado con la siguiente información</h1>
+					<Table striped bordered hover className="tableDashboardUsers">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>ID</td>
+								<td>{hotelInfo._id}</td>
+							</tr>
+							<tr>
+								<td>Nombre</td>
+								<td>{hotelInfo.nombre}</td>
+							</tr>
+							<tr>
+								<td>Estrellas</td>
+								<td>{hotelInfo.stars}</td>
+							</tr>
+							<tr>
+								<td>Info</td>
+								<td>{hotelInfo.info}</td>
+							</tr>
+							<tr>
+								<td>CatchPhrase</td>
+								<td>{hotelInfo.catchPhrase}</td>
+							</tr>
+							<tr>
+								<td>CatchPhrase #2</td>
+								<td>{hotelInfo.catchTwo}</td>
+							</tr>
+							<tr>
+								<td>Dirección</td>
+								<td>{hotelInfo.direct}</td>
+							</tr>
+							<tr>
+								<td>CP</td>
+								<td>{hotelInfo.codigoP}</td>
+							</tr>
+							<tr>
+								<td>Email</td>
+								<td>{hotelInfo.email}</td>
+							</tr>
+							<tr>
+								<td>Teléfono</td>
+								<td>{hotelInfo.telf}</td>
+							</tr>
+							<tr>
+								<td>Altitud</td>
+								<td>{hotelInfo.altitud}</td>
+							</tr>
+							<tr>
+								<td>Latitud</td>
+								<td>{hotelInfo.latitud}</td>
+							</tr>
+							<tr>
+								<td>Logo</td>
+								<td>{hotelInfo.logo}</td>
+							</tr>
+							<tr>
+								<td>Image</td>
+								<td>{hotelInfo.image}</td>
+							</tr>
+						</tbody>
+					</Table>
 				</div>
 			) : (
 				<div className="dashboardDiv__container2">

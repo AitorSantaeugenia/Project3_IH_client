@@ -9,12 +9,12 @@ function DemoCarousel() {
 			<Carousel.Item>
 				<img
 					className="d-block w-100 image__Carousel"
-					src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg"
+					src="https://www.hotelescenter.es/wp-content/blogs.dir/1601/files/home//home-corporativa-cordoba-hotel-corboba-center-1.jpg"
 					alt="First slide"
 				/>
-				<Carousel.Caption>
-					<h3>First slide label</h3>
-					<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+				<Carousel.Caption className="bgBackColor">
+					<h3 className="bold">Hotel Catalunya</h3>
+					<p>Hotel rural en el centro de la ciudad</p>
 				</Carousel.Caption>
 			</Carousel.Item>
 			<Carousel.Item>
@@ -24,9 +24,9 @@ function DemoCarousel() {
 					alt="Second slide"
 				/>
 
-				<Carousel.Caption>
-					<h3>Second slide label</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				<Carousel.Caption className="bgBackColor">
+					<h3 className="bold">Mejores habitaciones</h3>
+					<p>Al mejor precio</p>
 				</Carousel.Caption>
 			</Carousel.Item>
 
@@ -37,9 +37,9 @@ function DemoCarousel() {
 					alt="Third slide"
 				/>
 
-				<Carousel.Caption>
-					<h3>Third slide label</h3>
-					<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+				<Carousel.Caption className="bgBackColor">
+					<h3 className="bold">Hotel 4 estrellas</h3>
+					<p>En el centro de la ciudad</p>
 				</Carousel.Caption>
 			</Carousel.Item>
 		</Carousel>
