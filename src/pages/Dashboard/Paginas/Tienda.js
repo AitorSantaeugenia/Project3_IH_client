@@ -261,7 +261,7 @@ const PaginaTiendaDashboard = () => {
 							handleDeleteTienda(infoTienda._id);
 						}}
 					>
-						Eliminar restaurante
+						Eliminar tienda
 					</button>
 				</div>
 			)}

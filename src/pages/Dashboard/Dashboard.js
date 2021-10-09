@@ -407,7 +407,7 @@ function Dashboard() {
 						pauseOnHover
 					/>
 				</div>
-			)};
+			)}
 		</div>
 	);
 }

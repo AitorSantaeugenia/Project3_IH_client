@@ -38,7 +38,7 @@ function DemoCarousel() {
 				/>
 
 				<Carousel.Caption className="bgBackColor">
-					<h3 className="bold">Hotel 4 estrellas</h3>
+					<h3 className="bold">Hotel 3 estrellas</h3>
 					<p>En el centro de la ciudad</p>
 				</Carousel.Caption>
 			</Carousel.Item>

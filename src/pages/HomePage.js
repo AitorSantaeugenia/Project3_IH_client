@@ -47,7 +47,6 @@ function HomePage() {
 						<BsFillStarFill className="react-icons__Star" />
 						<BsFillStarFill className="react-icons__Star" />
 						<BsFillStarFill className="react-icons__Star" />
-						<BsFillStarFill className="react-icons__Star" />
 					</div>
 					<div className="divInfoHotel__Catchphrase">{info.catchPhrase}</div>
 					<div className="divInfoHotel__InfoHotel">{info.info}</div>
