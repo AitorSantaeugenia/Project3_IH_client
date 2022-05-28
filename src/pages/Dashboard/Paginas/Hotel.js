@@ -2,15 +2,17 @@ import React from 'react';
 import { useState } from 'react';
 //importing sidebar
 import Sidebar from './../../../components/Sidebar/Sidebar';
-import { Button, Spinner } from 'react-bootstrap';
+// import { Button, Spinner } from 'react-bootstrap';
 import UploadService from '../../../services/upload.service';
 //Axios usage
-import axios from 'axios';
+// import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL;
+// const API_URL = process.env.REACT_APP_API_URL;
 
 const PaginaHotelDashboard = () => {
+	// eslint-disable-next-line
 	const [ isLoading, setIsLoading ] = useState(false);
+	// eslint-disable-next-line
 	const [ image, setImage ] = useState('');
 
 	const handleInputFile = (e) => {
