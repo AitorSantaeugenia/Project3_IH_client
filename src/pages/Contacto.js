@@ -15,10 +15,15 @@ import { ToastContainer, toast } from 'react-toastify';
 const API_URL = process.env.REACT_APP_API_URL;
 
 function Contacto() {
+	// eslint-disable-next-line
 	const [ message, setMessage ] = useState('Email enviado.');
+	// eslint-disable-next-line
 	const [ name, setName ] = useState('');
+	// eslint-disable-next-line
 	const [ msg, setMsg ] = useState('');
+	// eslint-disable-next-line
 	const [ email, setEmail ] = useState('');
+	// eslint-disable-next-line
 	const [ asunto, setAsunto ] = useState('');
 	const [ infoContacto, setInfoContacto ] = useState([]);
 	const [ isLoading, setIsLoading ] = useState(false);
