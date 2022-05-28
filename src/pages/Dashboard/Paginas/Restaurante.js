@@ -240,7 +240,7 @@ const PaginaRestauranteDashboard = () => {
 							/>
 						</div>
 						<div className="flexRow">
-							<img src={infoRestaurant.imagen} className="imagenDashboardTienda" />
+							<img src={infoRestaurant.imagen} alt="Imagen restaurante" className="imagenDashboardTienda" />
 						</div>
 						<div className="flexRow">
 							<label className="text-left">Imagen</label>

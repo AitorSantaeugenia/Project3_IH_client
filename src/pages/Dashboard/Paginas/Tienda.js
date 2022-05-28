@@ -232,7 +232,7 @@ const PaginaTiendaDashboard = () => {
 							/>
 						</div>
 						<div className="flexRow">
-							<img src={infoTienda.imagen} className="imagenDashboardTienda" />
+							<img src={infoTienda.imagen} alt="Imagen tienda" className="imagenDashboardTienda" />
 						</div>
 						<div className="flexRow">
 							<label className="text-left">Imagen</label>

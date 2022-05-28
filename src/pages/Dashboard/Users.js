@@ -12,6 +12,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 const Usuarios = () => {
 	const [ users, setUsers ] = useState([]);
 	const [ isLoading, setIsLoading ] = useState(false);
+	// eslint-disable-next-line
 	const [ idUser ] = useState('');
 
 	const history = useHistory();

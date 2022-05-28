@@ -1,15 +1,16 @@
 import React from 'react';
 import { useContext } from 'react'; // <== IMPORT
-import { useState } from 'react';
+// import { useState } from 'react';
 //importing sidebar
 import Sidebar from '../../components/Sidebar/Sidebar';
-import { Button, Spinner } from 'react-bootstrap';
-import UploadService from '../../services/upload.service';
+// import { Button, Spinner } from 'react-bootstrap';
+// import UploadService from '../../services/upload.service';
 //auto user
 import { AuthContext } from '../../context/auth.context'; // <== IMPORT
 
 const Perfil = () => {
 	//const [ isLoading, setIsLoading ] = useState(false);
+	// eslint-disable-next-line
 	const { isLoggedIn, user, userData, logOutUser } = useContext(AuthContext);
 	//const [ image, setImage ] = useState('');
 
