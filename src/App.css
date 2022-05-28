@@ -139,3 +139,11 @@
   max-width: 360px;
   min-width: 360px;
 }
+
+.carousel-control-prev-icon{
+  background-color:rgb(33,37,41) !important;
+}
+
+.carousel-control-next-icon{
+  background-color:rgb(33,37,41) !important;
+}
