@@ -1,6 +1,6 @@
 import './Habitaciones.css';
 //useState
-import { useState } from 'react';
+// import { useState } from 'react';
 
 function Habitaciones(props) {
 	return (
