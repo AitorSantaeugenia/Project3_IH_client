@@ -4,7 +4,7 @@ import './Servicioshotel.css';
 const Servicioshotel = () => {
 	return (
 		<div className="card-group">
-			<div className="card transform">
+			<div className="card">
 				<img
 					className="card-img-top serviciosHotel__img"
 					src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/a1/d2/af/hotel-r-de-paris.jpg?w=900&h=-1&s=1"
@@ -18,7 +18,7 @@ const Servicioshotel = () => {
 					</p>
 				</div>
 			</div>
-			<div className="card transform">
+			<div className="card">
 				<img
 					className="card-img-top serviciosHotel__img"
 					src="https://www.vinccihoteles.com/sites/default/files/styles/flexslider_full/public/foto-34-restaurante-desayuno.jpg?itok=BiLWei23"
@@ -31,7 +31,7 @@ const Servicioshotel = () => {
 					</p>
 				</div>
 			</div>
-			<div className="card transform">
+			<div className="card">
 				<img
 					className="card-img-top serviciosHotel__img"
 					src="https://www.conexiones365.com/img/blog/tienda-covneniencia-green_leaves_store_yokohama.jpg"
